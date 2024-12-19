@@ -1,3 +1,8 @@
+
+
+
+
+
 const itemsCadList = JSON.parse(localStorage.getItem('itemsCad'))
 
 
@@ -11,7 +16,7 @@ function hideEdit(){
 //comandos para editar itens
 
 function editItem( indiceUpdate){
-
+   
    let editItem = document.getElementById('editItem')
    let formularioItem = document.getElementById('formularioItem')
 
@@ -29,8 +34,8 @@ function editItem( indiceUpdate){
         <input value="${arraySelectItem[sel]['newItem']}" class="inputz" type="text" name="" id="item" placeholder="Digite o nome do item">
         <br>
         <label for="select_item">Selecione o nível de gravidade</label><br>
-        <select value="${arraySelectItem[sel]['newSelect']}" name="" id="select_item">
-            <option value="${arraySelectItem[sel]['newSelect']}">${arraySelectItem[sel]['newSelect']}</option>
+        <select name="" id="select_item">
+            <option value="">${arraySelectItem[sel]['newSelect']}</option>
             <option value="Alto">Alto</option>
             <option value="Médio">Médio</option>
             <option value="Baixo">Baixo</option>
@@ -39,9 +44,8 @@ function editItem( indiceUpdate){
         <label for="dias_resolucao">Tempo de resolução (em dias)</label><br>
         <input  value="${arraySelectItem[sel]['newResolucao']}" type="number" name="" id="dias_resolucao" placeholder="Digite o número em dias" min="1">
     
-        <input type="hidden" id="usuario_logado" value="priscila@mobyan.com">
-        <input type="hidden" id="data_cadastro" value="1978/10/18">
-    
+        <input type="hidden" id="usuario_logado" value="andersantfer@mobyan.com">
+        <input type="hidden" id="data_cadastro" value="1978/10/18">   
         
         <p>
             <button class="btn_save_item" onclick="saveEditionItem('${sel}')">Salvar</button>
@@ -62,30 +66,36 @@ function editItem( indiceUpdate){
 arrayUpdateItem = []
 function saveEditionItem(indiceSaveItem){
 
-   alert(indiceSaveItem)
+   // alert(indiceSaveItem)
    arrayUpdateItem = itemsCadList
-let upItem = document.getElementById('item')
-let upSelect = document.getElementById('select_item')
-let upResolucao = document.getElementById('dias_resolucao')
+// let upItemItem = document.getElementsByClassName('item')
+let upItemItem = document.getElementById('item')
+let upSelectItem = document.getElementById('select_item')
+let upResolucaoItem = document.getElementById('dias_resolucao')
+let upUsuarioItem = document.getElementById('usuario_logado')
+let upDataCadItem = document.getElementById('data_cadastro')
+
+alert("Anderso"+upItemItem.value + indiceSaveItem)
 
 
 
-
-   for (let update = 0; update < arrayUpdateItem.length; update++) {
+   // for (let update = 0; update < arrayUpdateItem.length; update++) {
       
-      if(update == indiceSaveItem){
-         arrayUpdateItem[update]['newItem'] = upItem.value
-         arrayUpdateItem[update]['newSelect'] = upSelect.value
-         arrayUpdateItem[update]['newResolucao'] = upResolucao.value
+   //    if(update == indiceSaveItem){
+   //       arrayUpdateItem[update]['newItem'] = upItemItem.value
+   //       arrayUpdateItem[update]['newSelect'] = upSelectItem.value
+   //       arrayUpdateItem[update]['newResolucao'] = upResolucaoItem.value
+   //       arrayUpdateItem[update]['newLogado'] = upUsuarioItem.value
+   //       arrayUpdateItem[update]['newData'] = upDataCadItem.value
          
-         alert(upItem.value)
+        
         
          
-         localStorage.setItem('itemsCad', JSON.stringify(arrayUpdateItem))
+   //       localStorage.setItem('itemsCad', JSON.stringify(arrayUpdateItem))
 
-         location.href = "index.html"
-      }      
-   }  
+   //       location.href = "index.html"
+   //    }      
+   // }  
 }
 
 //================================EDIÇÃO itens final=========================
@@ -143,13 +153,7 @@ function newItem() {
 // inserir itens #################################
 
 
-
-
-
-
-
-
-//Cria sessao pala exibir lista em lista
+//Cria sessao para exibir lista em lista
 const sectionList = (listaCard) =>{
 
 
@@ -165,7 +169,7 @@ const sectionList = (listaCard) =>{
 }
  
 
-//Lista de pessoas cadastradas
+//Lista de itens cadastrados
 let showList = document.getElementById('listPersons')
 let showHeader = document.getElementById('headPersons')
 let showBody = document.getElementById('bodyPersons')
@@ -179,14 +183,14 @@ for (let li = 0; li < itemsCadList.length; li++) {
    //Corpo da tabela
    showBody.innerHTML +=
    `
-   <tr class="linha_item">
+   <tr class="linha_item" >
       <td >${itemsCadList[li]['newItem']}</td>
       <td class="centralizar">${itemsCadList[li]['newSelect']}</td>
       <td class="centralizar">${itemsCadList[li]['newResolucao']}</td>
       <td class="centralizar">
          <div class="form-check form-switch">
-         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-         <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+         <input  class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+         <label  class="form-check-label" for="flexSwitchCheckChecked"></label>
          </div>
       </td>
       <td class="centralizar">${itemsCadList[li]['newData']}</td>
@@ -398,23 +402,24 @@ const second = String(pdfData.getSeconds()).padStart(2,'0')
 // const concatName = `${year}-${month}-${day}-${hour}:${minut}:${second}.pdf`
 const concatName = `${year}-${month}-${day}-${hour}:${minut}:${second}.pdf`
 console.log(concatName)
+
 //Codigo para gerar um pdf da página
-const btnGenerate = document.querySelector("#gerapdf")
+// const btnGenerate = document.querySelector("#gerapdf")
 
-btnGenerate.addEventListener("click", () => {
+// btnGenerate.addEventListener("click", () => {
 
-    const content = document.querySelector("#tablePersons")
+//     const content = document.querySelector("#tablePersons")
 
-    const options = {
-        margin: [10,10,10,10],
-        filename: concatName,
-        html2canvas:{scale: 2},
-        jsPDF: {unit: "mm", format: "a4", orientation: "portrait"}
-    }
+//     const options = {
+//         margin: [10,10,10,10],
+//         filename: concatName,
+//         html2canvas:{scale: 2},
+//         jsPDF: {unit: "mm", format: "a4", orientation: "portrait"}
+//     }
 
-    html2pdf().set(options).from(content).save()
+//     html2pdf().set(options).from(content).save()
 
-})
+// })
 
 
 
