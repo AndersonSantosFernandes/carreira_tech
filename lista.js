@@ -1,7 +1,7 @@
 const itemsCadList = JSON.parse(localStorage.getItem('itemsCad'))
 
 
-// esconder editor de item
+// esconder editor de item 
 
 function hideEdit(){
    let editItem = document.getElementById('editItem')
