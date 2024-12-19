@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+<!-- LINK BOOTSTRAPP ICON -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+
+
+    <link rel="stylesheet" href="./css/main_style.css">
+    <title>Testando</title>
+<script>
+    //Obriga encerrar a seesão para acessar a index 
+    if(sessionStorage.getItem('usuarioLogado')){
+        location.href = './pages/home/home.html'
+    }
+</script>
+
+</head>
+
+<body>
+    <main class="container">
+        <header class="cabecalho">
+
+                
+
+            <div class="cab-dir">
+                    <h1>Parâmetro de itens</h1>
+            </div>
+                
+
+            <div class="cab_esq">
+                <div class="iniciais">
+                SP
+                </div>            
+                <p>SISTEMA OPPAY</p>
+            </div>
+        
+       
+        </header>
+   
+
+       
+       <div class="superior">
+            <div class="superior_esq">
+                 <div>Pesquisar por item</div>
+                <div ><input class="form_busca" type="text" name="" id="" placeholder="Digite aqui"> <input class="form_btn" type="button" value="Buscar">    </div>
+         
+            </div>
+            <div class="superior_dir">
+                <br>
+                <div><input class="novoItem_btn" type="button" value="Novo item"></div>
+            </div>             
+        </div>
+
+        <div class="superior2">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked">Visualizar mais detalhes</label>
+            </div>
+        </div>
+        <table class="tabela">
+            <thead>
+                <tr class="cabecalho_tabela">
+                    <th>Item</th>
+                    <th>Nível de <br> gravidade</th>
+                    <th>Dias para <br>resolução</th>
+                    <th>Status</th>
+                    <th>Última <br>ediçaõ</th>
+                    <th>Editor</th>
+                    <th>Edição</th>
+                </tr>
+            </thead>
+           
+            <tbody id="bodyPersons">
+                <!-- aqui aparecem inpormações em tabela -->
+              </tbody>
+        </table>
+         
+        
+<div class="cadastrar_item">
+
+
+<div class="voltar">
+    <h4>Voltar</h4>
+</div>
+
+<div class="criar_novo">
+    <h2>Crie um novo item</h2>
+</div>
+
+<div class="formulario_item">
+    <label for="item">Item</label><br>
+    <input class="inputz" type="text" name="" id="item" placeholder="Digite o nome do item">
+    <br>
+    <label for="select_item">Selecione o nível de gravidade</label><br>
+    <select name="" id="select_item">
+        <option value="">Selecione uma opção</option>
+        <option value="Alto">Alto</option>
+        <option value="Médio">Médio</option>
+        <option value="Baixo">Baixo</option>
+    </select>
+    <br>
+    <label for="dias_resolucao">Tempo de resolução (em dias)</label><br>
+    <input type="number" name="" id="dias_resolucao" placeholder="Digite o número em dias" min="1">
+
+    <input type="hidden" id="usuario_logado" value="priscila@mobyan.com">
+    <input type="hidden" id="data_cadastro" value="1978/10/18">
+
+    
+    <p>
+        <button class="btn_save_item" onclick="newItem()">Salvar</button>
+       
+        
+    </p>
+</div>
+
+    
+</div>
+
+        <!-- <div id="formInit">
+            <div id="init1">
+                <div>
+                    <h3 id="titleForm">Insira e-mail e senha para logar</h3>
+                </div>
+
+                <div style="text-align:center;">
+                    <input type="email" id="email" placeholder="Email" required><br>
+                    <input type="password" id="password" placeholder="Password" required><br>
+                    <button  class="btnAcao" onclick="logar()">Logar</button>
+                </div>
+            </div>
+            <button class="btnGiro" id="btn1" onclick="girarCadastro()">Ir para cadastro</button>
+            <div style="transform: perspective(200px) rotatey(180deg); opacity: 0; display:none;" id="init2">
+
+                <div>
+                    <h3 id="titleForm">Preencha para se cadastrar</h3>
+                </div>
+                <div style="text-align:center;">
+                    <input type="text" id="userCadastro" placeholder="Seu nome" required>
+                    <input type="email" id="emailCadastro" placeholder="Email" required><br>
+                    <input type="password" id="passwordCadastro" placeholder="Senha" min="6" max="16" required><br>
+                    <input type="password" id="confPasswordCadastro" placeholder="Confirmar senha" min="6" max="16"
+                        required>
+                    <button class="btnAcao" onclick="gravar()">Salvar</button>
+                   
+                </div>
+            </div>
+            <button class="btnGiro" style="opacity: 0; transform: perspective(200px) rotatey(180deg);" id="btn2"
+                onclick="girarLogin()">Ir para login</button>
+        </div> -->
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="lista.js"></script>
+</body>
+
+</html>

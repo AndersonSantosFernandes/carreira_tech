@@ -1,0 +1,115 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #D6F54F;
+}
+.container{
+    background-color: white;
+    min-height: 100vh;
+}
+.main{
+    padding:  0px 15px;
+}
+.cabecalho{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid gray;
+}
+
+.iniciais{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #4CD0A2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    color: white;
+}
+
+.cab_esq{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.form_busca{
+    width: 40%;
+    height: 40px;
+    border-radius: 5px;
+}
+.form_btn{
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    background: none;
+}
+.novoItem_btn{
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #263C18;
+    color: white;
+}
+.superior{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.superior2{
+    
+    height: 80px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.tabela{
+    width: 100%;
+}
+.cabecalho_tabela{
+    background-color: rgba(226, 226, 226, 0.808);
+    height: 60px;
+}
+.cadastrar_item{
+    width: 450px;
+    height: 100vh;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 805px;
+    padding: 20px;
+}
+
+.formulario_item input ,select{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.btn_save_item{
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 25px;
+    background-color: #263C18;
+    color: white;
+}
+
+.voltar{
+margin-bottom: 30px;
+}
+
+.criar_novo{
+    margin-bottom: 40px;
+}
+
+
+

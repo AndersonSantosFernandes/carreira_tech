@@ -1,0 +1,57 @@
+ #listPersons{
+    width: 100%;
+    height: max-content;
+    padding: 2px;
+    /* border: 1px solid purple; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:first baseline;
+    gap: 10px;
+ }
+ 
+ .card__person{
+    width: 100%;
+    min-height: 220px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px blue inset;
+    background-color: azure;
+ }
+ .strong{
+   font-weight: bold;
+ }
+ .out__btn{
+   width: 100%;
+   text-align: center;
+ }
+ .modalInput{
+  background-color: rgba(133, 133, 133, 0.158);
+ }
+ #tablePersons{
+  width: 100%;
+  background-color: white;
+ }
+ .btnsList{
+  display: flex;
+  column-gap: 5px;
+ }
+ .modalSelectList{
+  width: 90%;
+  background-color: rgba(133, 133, 133, 0.158);
+  padding: 6px;
+  border: none;
+  margin-bottom: 10px;
+ }
+
+ @media(min-width: 800px){
+
+   .card__person{
+      width: 270px;
+      min-height: 220px;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px blue inset;
+      opacity: .9;
+   }
+
+ }
