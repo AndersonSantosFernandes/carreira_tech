@@ -44,7 +44,7 @@ function editItem( indiceUpdate){
     
         
         <p>
-            <button class="btn_save_item" onclick="newItem()">Salvar</button>
+            <button class="btn_save_item" onclick="saveEditionItem('${sel}')">Salvar</button>
            
             
         </p>
@@ -55,6 +55,42 @@ function editItem( indiceUpdate){
    }
   //-------------------------------------------------------------------------
 }
+
+
+//================================EDIÇÃO itens inicio=========================
+// Salvamento de fato da edição
+arrayUpdateItem = []
+function saveEditionItem(indiceSaveItem){
+
+   alert(indiceSaveItem)
+   arrayUpdateItem = itemsCadList
+let upItem = document.getElementById('item')
+let upSelect = document.getElementById('select_item')
+let upResolucao = document.getElementById('dias_resolucao')
+
+
+
+
+   for (let update = 0; update < arrayUpdateItem.length; update++) {
+      
+      if(update == indiceSaveItem){
+         arrayUpdateItem[update]['newItem'] = upItem.value
+         arrayUpdateItem[update]['newSelect'] = upSelect.value
+         arrayUpdateItem[update]['newResolucao'] = upResolucao.value
+         
+         alert(upItem.value)
+        
+         
+         localStorage.setItem('itemsCad', JSON.stringify(arrayUpdateItem))
+
+         location.href = "index.html"
+      }      
+   }  
+}
+
+//================================EDIÇÃO itens final=========================
+
+
 
 
 //Trecho de codigo para exibir o cadastro de items
@@ -318,6 +354,8 @@ function updateUsers(indiceUpdate) {
       }
    }
 }
+
+//================================EDIÇÃO=========================
 // Salvamento de fato da edição
 arrayUpdate = []
 function saveEdition(indiceSave){
@@ -345,6 +383,8 @@ let upOcupation = document.getElementById('editSelect')
       }      
    }  
 }
+
+//================================EDIÇÃO=========================
 //Obtenção de data para formar o nome do PDF
 const pdfData = new Date()
 const year = String(pdfData.getFullYear())
