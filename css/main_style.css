@@ -31,6 +31,12 @@ body{
     font-size: 23px;
     color: white;
 }
+.cab_dir{
+    display: flex;
+    align-items: center;
+    justify-content:left ;
+    gap: 30px;
+}
 
 .cab_esq{
     height: 100%;
@@ -41,7 +47,7 @@ body{
 }
 
 .form_busca{
-    width: 40%;
+    width: 400px;
     height: 40px;
     border-radius: 5px;
 }
@@ -77,7 +83,7 @@ body{
     background-color: rgba(226, 226, 226, 0.808);
     height: 60px;
 }
-.cadastrar_item{
+.cadastrar_item, .editItem{
     width: 450px;
     height: 100vh;
     background-color: white;
@@ -102,7 +108,9 @@ body{
     background-color: #263C18;
     color: white;
 }
-
+.btnEdit{
+    border: none;
+}
 .voltar{
 margin-bottom: 30px;
 }
@@ -115,4 +123,26 @@ margin-bottom: 30px;
     border: 1px solid black;
 }
 
+.linha_item td{
+    
+    border: 1px solid black;
+    padding: 5px;
+}
 
+.centralizar{
+    text-align: center;
+}
+.btn_volta{
+    cursor: pointer;
+}
+.voltar{
+    display: flex;
+    align-items: center;
+    justify-content:left ;
+    gap: 10px;
+}
+.bi{
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+}

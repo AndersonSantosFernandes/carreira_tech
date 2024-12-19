@@ -1,45 +1,5 @@
 
 
-listaCargos = document.getElementById('personOcupation')
-// inserir itens#################################
-helpArrayPerson = []//Array auxiliar itens
-function newItemm() {
-
-
-
-    let item = document.getElementById('item')
-    let select_item = document.getElementById('select_item')
-    let dias_resolucao = document.getElementById('dias_resolucao')
-    let usuario_logado = document.getElementById('usuario_logado')
-    let data_cadastro = document.getElementById('data_cadastro')
-    alert(usuario_logado.value)
-    
-    // Evita salvar campos vazios
-    if (item.value.length < 2 || select_item.value.length < 2 || dias_resolucao.value.length < 1 ) {
-        // alert('Não deixe campos vazios')
-        Swal.fire({
-            icon: "error",
-            // title: "Oops...",
-            text: "Não deixe campos vazios",
-
-        });
-
-    } else {
-
-        // objeto que recebe dos inputs
-        objectPerson = { newItem: item.value, newSelect: select_item.value, newResolucao: dias_resolucao.value, newLogado: usuario_logado.value,
-        newData: data_cadastro.value}
-
-
-        helpArrayPerson = JSON.parse(localStorage.getItem('itemsCad')) || []
-        helpArrayPerson.push(objectPerson)
-        localStorage.setItem('itemsCad', JSON.stringify(helpArrayPerson))
-
-        location.href = "cadastrarPessoas.html"
-    }
-}
-
-// inserir itens #################################
 
 helpArrayOcupation = []//Array auxiliar cargos
 

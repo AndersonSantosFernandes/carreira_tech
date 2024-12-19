@@ -1,3 +1,47 @@
+// esconder editor de item
+
+function hideEdit(){
+   let editItem = document.getElementById('editItem')
+   editItem.style.display = 'none'
+}
+
+//comandos para editar itens
+
+function editItem(){
+
+   let editItem = document.getElementById('editItem')
+
+   editItem.style.display = 'block'
+   arraySelectItem = personCadList
+
+   for (let sel = 0; sel < arraySelectItem.length; sel++) {
+
+      if (indiceUpdate == sel) {
+         
+         editItem.innerHTML = `
+         
+         <input class="modalInput" value="${arraySelectItem[sel]['name']}" type="text" name="" id="name">
+         <input class="modalInput" value="${arraySelectItem[sel]['lastName']}" type="text" name="" id="lastName">
+         <input class="modalInput" value="${arraySelectItem[sel]['email']}" type="email" name="" id="email" disabled="disabled">
+
+         <input class="modalInput" value="${arraySelectItem[sel]['street']}" type="email" name="" id="myStreet">
+         <input class="modalInput" value="${arraySelectItem[sel]['number']}" type="email" name="" id="myNumber">
+         <input class="modalInput" value="${arraySelectItem[sel]['bairro']}" type="email" name="" id="myBairro">
+         <input class="modalInput" value="${arraySelectItem[sel]['cep']}" type="email" name="" id="myCep">
+         <input class="modalInput" value="${arraySelectItem[sel]['city']}" type="email" name="" id="myCity">
+         <input class="modalInput" value="${arraySelectItem[sel]['state']}" type="email" name="" id="myState">
+                  <hr>
+         <button type="button" class="btn btn-primary"  onclick="saveEdition('${sel}')" >
+         Salvar
+          </button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancela</button>
+         `
+      }
+   }
+  
+}
+
+
 //Trecho de codigo para exibir o cadastro de items
 
 function mostraCadastro(){
@@ -85,13 +129,21 @@ for (let li = 0; li < itemsCadList.length; li++) {
    showBody.innerHTML +=
    `
    <tr class="linha_item">
-      <td>${itemsCadList[li]['newItem']}</td>
-      <td>${itemsCadList[li]['newSelect']}</td>
-      <td>${itemsCadList[li]['newResolucao']}</td>
-      <td>${itemsCadList[li]['botaozinho']}</td>
-      <td>${itemsCadList[li]['newData']}</td>
-      <td>${itemsCadList[li]['newLogado']}</td>
-      <td>${itemsCadList[li][' icone']}</td>
+      <td >${itemsCadList[li]['newItem']}</td>
+      <td class="centralizar">${itemsCadList[li]['newSelect']}</td>
+      <td class="centralizar">${itemsCadList[li]['newResolucao']}</td>
+      <td class="centralizar">
+         <div class="form-check form-switch">
+         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+         <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+         </div>
+      </td>
+      <td class="centralizar">${itemsCadList[li]['newData']}</td>
+      <td class="centralizar">${itemsCadList[li]['newLogado']}</td>
+      <td class="centralizar">
+      <button class="btnEdit" onclick="editItem()"><i class="bi bi-pencil"></i></button>
+      
+      </td>
       
     </tr>
    
@@ -99,7 +151,10 @@ for (let li = 0; li < itemsCadList.length; li++) {
 }   
 
 
-
+// ####################################################################################################
+// ####################################################################################################
+// ####################################################################################################
+// ####################################################################################################
 
 if (personCadList.length == 0) {
    showList.innerHTML +=
@@ -223,10 +278,6 @@ function updateUsers(indiceUpdate) {
    let editPersons = document.getElementById('editPerson')
    arraySelectPerson = personCadList
 
-
-   
-
-   
    for (let sel = 0; sel < arraySelectPerson.length; sel++) {
 
       if (indiceUpdate == sel) {
@@ -261,12 +312,7 @@ let upLastName = document.getElementById('lastName')
 let upEmail = document.getElementById('email')
 let upOcupation = document.getElementById('editSelect')
 
-let upStreet = document.getElementById('myStreet')
-let upNumber = document.getElementById('myNumber')
-let upBairro = document.getElementById('myBairro')
-let upCep = document.getElementById('myCep')
-let upCity = document.getElementById('myCity')
-let upState = document.getElementById('myState')
+
 
    for (let update = 0; update < arrayUpdate.length; update++) {
       
@@ -276,12 +322,7 @@ let upState = document.getElementById('myState')
          arrayUpdate[update]['email'] = upEmail.value
          arrayUpdate[update]['ocupation'] = upOcupation.value
 
-         arrayUpdate[update]['street'] = upStreet.value
-         arrayUpdate[update]['number'] = upNumber.value
-         arrayUpdate[update]['bairro'] = upBairro.value
-         arrayUpdate[update]['cep'] = upCep.value
-         arrayUpdate[update]['city'] = upCity.value
-         arrayUpdate[update]['state'] = upState.value
+        
          
          localStorage.setItem('personCad', JSON.stringify(arrayUpdate))
 
@@ -299,8 +340,8 @@ const minut = String(pdfData.getMinutes()).padStart(2,'0')
 
 const second = String(pdfData.getSeconds()).padStart(2,'0')
 
+// const concatName = `${year}-${month}-${day}-${hour}:${minut}:${second}.pdf`
 const concatName = `${year}-${month}-${day}-${hour}:${minut}:${second}.pdf`
-
 console.log(concatName)
 //Codigo para gerar um pdf da página
 const btnGenerate = document.querySelector("#gerapdf")
