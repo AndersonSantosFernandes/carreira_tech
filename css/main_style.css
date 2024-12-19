@@ -110,6 +110,9 @@ margin-bottom: 30px;
 .criar_novo{
     margin-bottom: 40px;
 }
-
+.linha_item{
+    height: 50px;
+    border: 1px solid black;
+}
 
 

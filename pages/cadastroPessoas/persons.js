@@ -3,7 +3,7 @@
 listaCargos = document.getElementById('personOcupation')
 // inserir itens#################################
 helpArrayPerson = []//Array auxiliar itens
-function newItem() {
+function newItemm() {
 
 
 

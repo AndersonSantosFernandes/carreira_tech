@@ -1,3 +1,16 @@
+//Trecho de codigo para exibir o cadastro de items
+
+function mostraCadastro(){
+   let mostraCadastro = document.getElementById("cadastrar_item")
+
+   mostraCadastro.style.display = 'block'
+}
+function hideCadastro(){
+   let mostraCadastro = document.getElementById("cadastrar_item")
+   mostraCadastro.style.display = 'none'
+}
+
+
 // inserir itens#################################
 helpArrayPerson = []//Array auxiliar itens
 function newItem() {
@@ -7,7 +20,7 @@ function newItem() {
     let dias_resolucao = document.getElementById('dias_resolucao')
     let usuario_logado = document.getElementById('usuario_logado')
     let data_cadastro = document.getElementById('data_cadastro')
-    alert(usuario_logado.value)
+ 
     
     // Evita salvar campos vazios
     if (item.value.length < 2 || select_item.value.length < 2 || dias_resolucao.value.length < 1 ) {
@@ -28,7 +41,7 @@ function newItem() {
         helpArrayPerson.push(objectPerson)
         localStorage.setItem('itemsCad', JSON.stringify(helpArrayPerson))
 
-        location.href = "cadastrarPessoas.html"
+        location.href = "index.html"
     }
 }
 
@@ -71,7 +84,7 @@ for (let li = 0; li < itemsCadList.length; li++) {
    //Corpo da tabela
    showBody.innerHTML +=
    `
-   <tr>
+   <tr class="linha_item">
       <td>${itemsCadList[li]['newItem']}</td>
       <td>${itemsCadList[li]['newSelect']}</td>
       <td>${itemsCadList[li]['newResolucao']}</td>

@@ -58,7 +58,7 @@
             </div>
             <div class="superior_dir">
                 <br>
-                <div><input class="novoItem_btn" type="button" value="Novo item"></div>
+                <div><input class="novoItem_btn" type="button" value="Novo item" onclick="mostraCadastro()"></div>
             </div>             
         </div>
 
@@ -87,18 +87,19 @@
         </table>
          
         
-<div class="cadastrar_item">
+<div class="cadastrar_item" id="cadastrar_item" style="display: none;">
 
 
 <div class="voltar">
-    <h4>Voltar</h4>
+    <h4 onclick="hideCadastro()">Voltar</h4>
+    
 </div>
 
 <div class="criar_novo">
     <h2>Crie um novo item</h2>
 </div>
 
-<div class="formulario_item">
+<div class="formulario_item" >
     <label for="item">Item</label><br>
     <input class="inputz" type="text" name="" id="item" placeholder="Digite o nome do item">
     <br>
