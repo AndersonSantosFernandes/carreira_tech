@@ -1,3 +1,6 @@
+const itemsCadList = JSON.parse(localStorage.getItem('itemsCad'))
+
+
 // esconder editor de item
 
 function hideEdit(){
@@ -7,38 +10,50 @@ function hideEdit(){
 
 //comandos para editar itens
 
-function editItem(){
+function editItem( indiceUpdate){
 
    let editItem = document.getElementById('editItem')
+   let formularioItem = document.getElementById('formularioItem')
 
    editItem.style.display = 'block'
-   arraySelectItem = personCadList
-
+   arraySelectItem = itemsCadList
+//------------------------------------------------------------------------
    for (let sel = 0; sel < arraySelectItem.length; sel++) {
 
       if (indiceUpdate == sel) {
          
-         editItem.innerHTML = `
-         
-         <input class="modalInput" value="${arraySelectItem[sel]['name']}" type="text" name="" id="name">
-         <input class="modalInput" value="${arraySelectItem[sel]['lastName']}" type="text" name="" id="lastName">
-         <input class="modalInput" value="${arraySelectItem[sel]['email']}" type="email" name="" id="email" disabled="disabled">
+         formularioItem.innerHTML = `
 
-         <input class="modalInput" value="${arraySelectItem[sel]['street']}" type="email" name="" id="myStreet">
-         <input class="modalInput" value="${arraySelectItem[sel]['number']}" type="email" name="" id="myNumber">
-         <input class="modalInput" value="${arraySelectItem[sel]['bairro']}" type="email" name="" id="myBairro">
-         <input class="modalInput" value="${arraySelectItem[sel]['cep']}" type="email" name="" id="myCep">
-         <input class="modalInput" value="${arraySelectItem[sel]['city']}" type="email" name="" id="myCity">
-         <input class="modalInput" value="${arraySelectItem[sel]['state']}" type="email" name="" id="myState">
-                  <hr>
-         <button type="button" class="btn btn-primary"  onclick="saveEdition('${sel}')" >
-         Salvar
-          </button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancela</button>
+
+         <label for="item">Item</label><br>
+        <input value="${arraySelectItem[sel]['newItem']}" class="inputz" type="text" name="" id="item" placeholder="Digite o nome do item">
+        <br>
+        <label for="select_item">Selecione o nível de gravidade</label><br>
+        <select value="${arraySelectItem[sel]['newSelect']}" name="" id="select_item">
+            <option value="${arraySelectItem[sel]['newSelect']}">${arraySelectItem[sel]['newSelect']}</option>
+            <option value="Alto">Alto</option>
+            <option value="Médio">Médio</option>
+            <option value="Baixo">Baixo</option>
+        </select>
+        <br>
+        <label for="dias_resolucao">Tempo de resolução (em dias)</label><br>
+        <input  value="${arraySelectItem[sel]['newResolucao']}" type="number" name="" id="dias_resolucao" placeholder="Digite o número em dias" min="1">
+    
+        <input type="hidden" id="usuario_logado" value="priscila@mobyan.com">
+        <input type="hidden" id="data_cadastro" value="1978/10/18">
+    
+        
+        <p>
+            <button class="btn_save_item" onclick="newItem()">Salvar</button>
+           
+            
+        </p>
+         
+        
          `
       }
    }
-  
+  //-------------------------------------------------------------------------
 }
 
 
@@ -120,7 +135,7 @@ let showHeader = document.getElementById('headPersons')
 let showBody = document.getElementById('bodyPersons')
 let showBtnPdf = document.getElementById('btnPdf')
 const btnPdfs = document.getElementById('gerapdf')
-const itemsCadList = JSON.parse(localStorage.getItem('itemsCad'))
+// const itemsCadList = JSON.parse(localStorage.getItem('itemsCad'))
 //lista de itens ############################### inicio
 
 for (let li = 0; li < itemsCadList.length; li++) {
@@ -141,7 +156,7 @@ for (let li = 0; li < itemsCadList.length; li++) {
       <td class="centralizar">${itemsCadList[li]['newData']}</td>
       <td class="centralizar">${itemsCadList[li]['newLogado']}</td>
       <td class="centralizar">
-      <button class="btnEdit" onclick="editItem()"><i class="bi bi-pencil"></i></button>
+      <button class="btnEdit" onclick="editItem('${li}')"><i class="bi bi-pencil"></i></button>
       
       </td>
       
