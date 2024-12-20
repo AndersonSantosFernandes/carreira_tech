@@ -30,19 +30,19 @@ function editItem( indiceUpdate){
          formularioItem.innerHTML = `
 
 
-         <label for="item">Item</label><br>
-        <input value="${arraySelectItem[sel]['newItem']}" class="inputz" type="text" name="" id="item" placeholder="Digite o nome do item">
+         <label for="itemUp">Item</label><br>
+        <input value="${arraySelectItem[sel]['newItem']}" class="inputz" type="text" name="" id="itemUp" placeholder="Digite o nome do item">
         <br>
-        <label for="select_item">Selecione o nível de gravidade</label><br>
-        <select name="" id="select_item">
+        <label for="select_itemUp">Selecione o nível de gravidade</label><br>
+        <select name="" id="select_itemUp">
             <option value="">${arraySelectItem[sel]['newSelect']}</option>
             <option value="Alto">Alto</option>
             <option value="Médio">Médio</option>
             <option value="Baixo">Baixo</option>
         </select>
         <br>
-        <label for="dias_resolucao">Tempo de resolução (em dias)</label><br>
-        <input  value="${arraySelectItem[sel]['newResolucao']}" type="number" name="" id="dias_resolucao" placeholder="Digite o número em dias" min="1">
+        <label for="dias_resolucaoUp">Tempo de resolução (em dias)</label><br>
+        <input  value="${arraySelectItem[sel]['newResolucao']}" type="number" name="" id="dias_resolucaoUp" placeholder="Digite o número em dias" min="1">
     
         <input type="hidden" id="usuario_logado" value="andersantfer@mobyan.com">
         <input type="hidden" id="data_cadastro" value="1978/10/18">   
@@ -69,33 +69,45 @@ function saveEditionItem(indiceSaveItem){
    // alert(indiceSaveItem)
    arrayUpdateItem = itemsCadList
 // let upItemItem = document.getElementsByClassName('item')
-let upItemItem = document.getElementById('item')
-let upSelectItem = document.getElementById('select_item')
-let upResolucaoItem = document.getElementById('dias_resolucao')
+let upItemItem = document.getElementById('itemUp')
+let upSelectItem = document.getElementById('select_itemUp')
+let upResolucaoItem = document.getElementById('dias_resolucaoUp')
 let upUsuarioItem = document.getElementById('usuario_logado')
 let upDataCadItem = document.getElementById('data_cadastro')
 
-alert("Anderso"+upItemItem.value + indiceSaveItem)
+//Obtenção de data para formar o nome do PDF
+const pdfData = new Date()
+const year = String(pdfData.getFullYear())
+const month = String(pdfData.getMonth()+1).padStart(2,'0')
+const day = String(pdfData.getDay()).padStart(2,'0')
+const hour = String(pdfData.getHours()).padStart(2,'0')
+const minut = String(pdfData.getMinutes()).padStart(2,'0')
+
+const second = String(pdfData.getSeconds()).padStart(2,'0')
+
+// const concatName = `${year}-${month}-${day}-${hour}:${minut}:${second}.pdf`
+const concatName = `${day}-${month}-${year}<br>${hour}:${minut}:${second}`
 
 
 
-   // for (let update = 0; update < arrayUpdateItem.length; update++) {
+
+   for (let update = 0; update < arrayUpdateItem.length; update++) {
       
-   //    if(update == indiceSaveItem){
-   //       arrayUpdateItem[update]['newItem'] = upItemItem.value
-   //       arrayUpdateItem[update]['newSelect'] = upSelectItem.value
-   //       arrayUpdateItem[update]['newResolucao'] = upResolucaoItem.value
-   //       arrayUpdateItem[update]['newLogado'] = upUsuarioItem.value
-   //       arrayUpdateItem[update]['newData'] = upDataCadItem.value
+      if(update == indiceSaveItem){
+         arrayUpdateItem[update]['newItem'] = upItemItem.value
+         arrayUpdateItem[update]['newSelect'] = upSelectItem.value
+         arrayUpdateItem[update]['newResolucao'] = upResolucaoItem.value
+         arrayUpdateItem[update]['newLogado'] = upUsuarioItem.value
+         arrayUpdateItem[update]['newData'] = concatName
          
         
         
          
-   //       localStorage.setItem('itemsCad', JSON.stringify(arrayUpdateItem))
+         localStorage.setItem('itemsCad', JSON.stringify(arrayUpdateItem))
 
-   //       location.href = "index.html"
-   //    }      
-   // }  
+         location.href = "index.html"
+      }      
+   }  
 }
 
 //================================EDIÇÃO itens final=========================
@@ -183,11 +195,11 @@ for (let li = 0; li < itemsCadList.length; li++) {
    //Corpo da tabela
    showBody.innerHTML +=
    `
-   <tr class="linha_item" >
+   <tr class="linha_item " >
       <td >${itemsCadList[li]['newItem']}</td>
       <td class="centralizar">${itemsCadList[li]['newSelect']}</td>
       <td class="centralizar">${itemsCadList[li]['newResolucao']}</td>
-      <td class="centralizar">
+      <td class="centralizar ">
          <div class="form-check form-switch">
          <input  class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
          <label  class="form-check-label" for="flexSwitchCheckChecked"></label>
@@ -389,19 +401,7 @@ let upOcupation = document.getElementById('editSelect')
 }
 
 //================================EDIÇÃO=========================
-//Obtenção de data para formar o nome do PDF
-const pdfData = new Date()
-const year = String(pdfData.getFullYear())
-const month = String(pdfData.getMonth()+1).padStart(2,'0')
-const day = String(pdfData.getDay()).padStart(2,'0')
-const hour = String(pdfData.getHours()).padStart(2,'0')
-const minut = String(pdfData.getMinutes()).padStart(2,'0')
 
-const second = String(pdfData.getSeconds()).padStart(2,'0')
-
-// const concatName = `${year}-${month}-${day}-${hour}:${minut}:${second}.pdf`
-const concatName = `${year}-${month}-${day}-${hour}:${minut}:${second}.pdf`
-console.log(concatName)
 
 //Codigo para gerar um pdf da página
 // const btnGenerate = document.querySelector("#gerapdf")
