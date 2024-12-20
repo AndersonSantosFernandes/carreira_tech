@@ -66,7 +66,7 @@ function editItem( indiceUpdate){
 arrayUpdateItem = []
 function saveEditionItem(indiceSaveItem){
 
-   // alert(indiceSaveItem)
+  
    arrayUpdateItem = itemsCadList
 // let upItemItem = document.getElementsByClassName('item')
 let upItemItem = document.getElementById('itemUp')
