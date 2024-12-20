@@ -35,7 +35,7 @@ function editItem( indiceUpdate){
         <br>
         <label for="select_itemUp">Selecione o nível de gravidade</label><br>
         <select name="" id="select_itemUp">
-            <option value="">${arraySelectItem[sel]['newSelect']}</option>
+            <option value="${arraySelectItem[sel]['newSelect']}">${arraySelectItem[sel]['newSelect']}</option>
             <option value="Alto">Alto</option>
             <option value="Médio">Médio</option>
             <option value="Baixo">Baixo</option>
@@ -137,7 +137,23 @@ function newItem() {
     let dias_resolucao = document.getElementById('dias_resolucao')
     let usuario_logado = document.getElementById('usuario_logado')
     let data_cadastro = document.getElementById('data_cadastro')
- 
+
+    
+      //Obtenção de data para formar o nome do PDF
+const pdfData = new Date()
+const year = String(pdfData.getFullYear())
+const month = String(pdfData.getMonth()+1).padStart(2,'0')
+const day = String(pdfData.getDay()).padStart(2,'0')
+const hour = String(pdfData.getHours()).padStart(2,'0')
+const minut = String(pdfData.getMinutes()).padStart(2,'0')
+
+const second = String(pdfData.getSeconds()).padStart(2,'0')
+
+// const concatName = `${year}-${month}-${day}-${hour}:${minut}:${second}.pdf`
+const concatName = `${day}-${month}-${year}<br>${hour}:${minut}:${second}`
+
+
+
     
     // Evita salvar campos vazios
     if (item.value.length < 2 || select_item.value.length < 2 || dias_resolucao.value.length < 1 ) {
@@ -152,7 +168,7 @@ function newItem() {
 
         // objeto que recebe dos inputs
         objectPerson = { newItem: item.value, newSelect: select_item.value, newResolucao: dias_resolucao.value, newLogado: usuario_logado.value,
-        newData: data_cadastro.value}
+        newData: concatName}
 
         helpArrayPerson = JSON.parse(localStorage.getItem('itemsCad')) || []
         helpArrayPerson.push(objectPerson)
