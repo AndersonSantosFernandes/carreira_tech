@@ -1,3 +1,5 @@
+
+
 //Obtenção de data
 const dataAtual = new Date()
 //padStart(x,x) serve para quando se deseja mostrar um numero sosinho
@@ -88,7 +90,7 @@ function gravar() {
                         //Salva no localstorage atualizado com a nova informação
                         localStorage.setItem('cadastrado', JSON.stringify(arrayUsuarios))
 
-                        location.href = "./index.html"
+                        location.href = "index.html"
 
                         Swal.fire({
                             position: "top-end",
@@ -191,44 +193,12 @@ if (sessionStorage.getItem('usuarioLogado')) {
 
 }
 
-//função que dá start nas ações de login
-function logar() {
-
-    const retornoLogado = JSON.parse(localStorage.getItem('cadastrado'))
-    // console.log(retornoLogado[0]['emailUs'])
-
-    let emailUsuario = document.getElementById("email").value
-    let senhaUsuario = document.getElementById("password").value
-
-    //Verificação no "BD" se existe usuario e senha compa´tivel
-
-    // console.log("Retorno logado", retornoLogado.length)
-
-    for (let i = 0; i < retornoLogado.length; i++) {
-        // percorre o array procurando email e senha que combinam
-        if (emailUsuario == retornoLogado[i]['emailUs'] && senhaUsuario == retornoLogado[i]['senhaUs']) {
-
-            // Encontrando a combinação, cria uma com o nome do usuário
-
-            objetoLogado = { nomeSessao: retornoLogado[i]['nomeUs'], emailSessao: retornoLogado[i]['emailUs'] }
-            sessionStorage.setItem('usuarioLogado', JSON.stringify(objetoLogado))
 
 
-            // alert("Logado com sucesso")
-             location.href = "./pages/home/home.html"
-           
-            break;
-        }
 
-    }
 
-    // Se não encontrar e-mail e senha que combinam a sessão não é criada e não executa o login
-    if (!sessionStorage.getItem('usuarioLogado')) {
-        // alert('E-mail ou senha inválidos ou usuário não cadastrado')
-        Swal.fire("E-mail ou senha nválidos ou não cadastrado!");
-    }
 
-}
+
 let showUsuario = document.getElementById('nomeUsuario')
 let usando = JSON.parse(sessionStorage.getItem('usuarioLogado'))
 // console.log('Usando',usando.emailSessao)
@@ -236,6 +206,8 @@ let usando = JSON.parse(sessionStorage.getItem('usuarioLogado'))
 if (sessionStorage.getItem('usuarioLogado') != null) {
     showUsuario.innerHTML = `Olá, ${usando.nomeSessao}`
 }
+
+
 
 //Arrai de apoio
 arrayDelete = []
@@ -253,13 +225,7 @@ function delUsuario(chave) {
     localStorage.setItem('cadastrado', JSON.stringify(arrayDelete))
 
     //Dá um 'refresh' na pagina para já mostrar a alteração
-    location.href = "./home.html"
+    location.href = "index.html"
 
 }
 
-// Função que encerra a sessão
-const encerrarSessao = () => {
-    sessionStorage.clear('usuarioLogado')
-    //Redireciona de volta para index
-    location.href = "../../index.html"
-}

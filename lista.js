@@ -1,7 +1,14 @@
+let usando1 = JSON.parse(sessionStorage.getItem('usuarioLogado'))
+// alert(usando1.nomeSessao +" "+usando1.emailSessao)
+let nomeLogado = usando1.nomeSessao
+let emailLogado = usando1.emailSessao
 
-
-
-
+if(sessionStorage.getItem('usuarioLogado')){
+        let botaoCadastro = document.getElementById("novoItem_btn")
+      botaoCadastro.style.display="block"
+     
+    }
+      
 
 const itemsCadList = JSON.parse(localStorage.getItem('itemsCad'))
 
@@ -90,14 +97,13 @@ const concatName = `${day}-${month}-${year}<br>${hour}:${minut}:${second}`
 
 
 
-
    for (let update = 0; update < arrayUpdateItem.length; update++) {
       
       if(update == indiceSaveItem){
          arrayUpdateItem[update]['newItem'] = upItemItem.value
          arrayUpdateItem[update]['newSelect'] = upSelectItem.value
          arrayUpdateItem[update]['newResolucao'] = upResolucaoItem.value
-         arrayUpdateItem[update]['newLogado'] = upUsuarioItem.value
+         arrayUpdateItem[update]['newLogado'] = nomeLogado
          arrayUpdateItem[update]['newData'] = concatName
          
         
@@ -167,7 +173,7 @@ const concatName = `${day}-${month}-${year}<br>${hour}:${minut}:${second}`
     } else {
 
         // objeto que recebe dos inputs
-        objectPerson = { newItem: item.value, newSelect: select_item.value, newResolucao: dias_resolucao.value, newLogado: usuario_logado.value,
+        objectPerson = { newItem: item.value, newSelect: select_item.value, newResolucao: dias_resolucao.value, newLogado: nomeLogado,
         newData: concatName}
 
         helpArrayPerson = JSON.parse(localStorage.getItem('itemsCad')) || []
@@ -181,29 +187,13 @@ const concatName = `${day}-${month}-${year}<br>${hour}:${minut}:${second}`
 // inserir itens #################################
 
 
-//Cria sessao para exibir lista em lista
-const sectionList = (listaCard) =>{
 
-
-
-   if(listaCard == 1){
-      sessionStorage.setItem('personList','list')
-      
-   }else if(listaCard == 2){
-      sessionStorage.setItem('personList','card')
-      
-   }
-   location.href = "lista.html"
-}
- 
 
 //Lista de itens cadastrados
-let showList = document.getElementById('listPersons')
-let showHeader = document.getElementById('headPersons')
+
 let showBody = document.getElementById('bodyPersons')
-let showBtnPdf = document.getElementById('btnPdf')
-const btnPdfs = document.getElementById('gerapdf')
-// const itemsCadList = JSON.parse(localStorage.getItem('itemsCad'))
+
+
 //lista de itens ############################### inicio
 
 for (let li = 0; li < itemsCadList.length; li++) {
@@ -419,23 +409,24 @@ let upOcupation = document.getElementById('editSelect')
 //================================EDIÇÃO=========================
 
 
-//Codigo para gerar um pdf da página
-// const btnGenerate = document.querySelector("#gerapdf")
 
-// btnGenerate.addEventListener("click", () => {
 
-//     const content = document.querySelector("#tablePersons")
+function hideEsc(){
 
-//     const options = {
-//         margin: [10,10,10,10],
-//         filename: concatName,
-//         html2canvas:{scale: 2},
-//         jsPDF: {unit: "mm", format: "a4", orientation: "portrait"}
-//     }
+   let hideCad = document.getElementById("cadastrando")
+   hideCad.style.display = "none"
 
-//     html2pdf().set(options).from(content).save()
+}
 
-// })
+function showMenu(){
+
+    let hideCad = document.getElementById("cadastrando")
+   hideCad.style.display = "block"
+
+}
+
+
+
 
 
 

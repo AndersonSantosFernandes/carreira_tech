@@ -20,9 +20,9 @@
     <title>Testando</title>
 <script>
     //Obriga encerrar a seesão para acessar a index 
-    if(sessionStorage.getItem('usuarioLogado')){
-        location.href = './pages/home/home.html'
-    }
+    // if(sessionStorage.getItem('usuarioLogado')){
+    //     location.href = './index.html'
+    // }
 </script>
 
 </head>
@@ -34,7 +34,9 @@
             
             
             <div class="cab_dir" >
-                <i class="bi bi-list"></i>  <h1>Parâmetro de itens</h1>
+                
+                <i class="bi bi-list" onclick="showMenu()"></i>  <h1>Parâmetro de itens</h1>
+                
             </div>
                 
 
@@ -58,7 +60,7 @@
             </div>
             <div class="superior_dir">
                 <br>
-                <div><input class="novoItem_btn" type="button" value="Novo item" onclick="mostraCadastro()"></div>
+                <div><input class="novoItem_btn" id="novoItem_btn" type="button" value="Novo item" onclick="mostraCadastro()" style="display: none;"></div>
             </div>             
         </div>
 
@@ -175,39 +177,22 @@
      
    
     </div>
-    <div class="cadastrando">
+    <!-- Menu lateral esquerdo -->
+    <div class="cadastrando" id="cadastrando" style="display: none;">
+
+        <h1 onclick="hideEsc()" class="fechaCadastro">X</h1>
+
+        <!-- Alguns dos principais eventos incluem: click, dblclick, mouseover / mouseout, mousedown /
+         mouseup, keydown, keyup, input, change, submit, scroll, entre outros -->
+
+
+         <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+        </button>
         
-        <!-- <div id="formInit">
-            <div id="init1">
-                <div>
-                    <h3 id="titleForm">Insira e-mail e senha para logar</h3>
-                </div>
-
-                <div style="text-align:center;">
-                    <input type="email" id="email" placeholder="Email" required><br>
-                    <input type="password" id="password" placeholder="Password" required><br>
-                    <button  class="btnAcao" onclick="logar()">Logar</button>
-                </div>
-            </div>
-            <button class="btnGiro" id="btn1" onclick="girarCadastro()">Ir para cadastro</button>
-            <div style="transform: perspective(200px) rotatey(180deg); opacity: 0; display:none;" id="init2">
-
-                <div>
-                    <h3 id="titleForm">Preencha para se cadastrar</h3>
-                </div>
-                <div style="text-align:center;">
-                    <input type="text" id="userCadastro" placeholder="Seu nome" required>
-                    <input type="email" id="emailCadastro" placeholder="Email" required><br>
-                    <input type="password" id="passwordCadastro" placeholder="Senha" min="6" max="16" required><br>
-                    <input type="password" id="confPasswordCadastro" placeholder="Confirmar senha" min="6" max="16"
-                        required>
-                    <button class="btnAcao" onclick="gravar()">Salvar</button>
-                   
-                </div>
-            </div>
-            <button class="btnGiro" style="opacity: 0; transform: perspective(200px) rotatey(180deg);" id="btn2"
-                onclick="girarLogin()">Ir para login</button>
-        </div> -->
+        <button type="button" onclick="logOut()">Sair</button>
+        
     </div> 
         <!-- <div id="formInit">
             <div id="init1">
@@ -241,8 +226,62 @@
                 onclick="girarLogin()">Ir para login</button>
         </div> -->
     </main>
+   
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+<div id="formInit">
+            <div id="init1">
+                <div>
+                    <h3 id="titleForm">Insira e-mail e senha para logar</h3>
+                </div>
+
+                <div style="text-align:center;">
+                    <input type="email" id="email" placeholder="Email" required><br>
+                    <input type="password" id="password" placeholder="Password" required><br>
+                    <button  class="btnAcao" onclick="logar()">Logar</button>
+                </div>
+            </div>
+            <button class="btnGiro" id="btn1" onclick="girarCadastro()">Ir para cadastro</button>
+            <div style="transform: perspective(200px) rotatey(180deg); opacity: 0; display:none;" id="init2">
+
+                <div>
+                    <h3 id="titleForm">Preencha para se cadastrar</h3>
+                </div>
+                <div style="text-align:center;">
+                    <input type="text" id="userCadastro" placeholder="Seu nome" required>
+                    <input type="email" id="emailCadastro" placeholder="Email" required><br>
+                    <input type="password" id="passwordCadastro" placeholder="Senha" min="6" max="16" required><br>
+                    <input type="password" id="confPasswordCadastro" placeholder="Confirmar senha" min="6" max="16"
+                        required>
+                    <button class="btnAcao" onclick="gravar()">Salvar</button>
+                   
+                </div>
+            </div>
+            <button class="btnGiro" style="opacity: 0; transform: perspective(200px) rotatey(180deg);" id="btn2"
+                onclick="girarLogin()">Ir para login</button>
+        </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/logar.js"></script>
     <script src="lista.js"></script>
 </body>
 

@@ -153,6 +153,12 @@ margin-bottom: 30px;
     height: 100vh;
     background-color: #263C18;
     position: absolute;
-    top: 1px;
+    top: 0px;
     left: 0px;
+    cursor: pointer;
+}
+
+.fechaCadastro{
+    color: white;
+    margin-right: 0;
 }
