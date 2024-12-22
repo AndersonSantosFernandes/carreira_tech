@@ -3,10 +3,19 @@ let usando1 = JSON.parse(sessionStorage.getItem('usuarioLogado'))
 let nomeLogado = usando1.nomeSessao
 let emailLogado = usando1.emailSessao
 
+
+
+
 if(sessionStorage.getItem('usuarioLogado')){
         let botaoCadastro = document.getElementById("novoItem_btn")
+        let logadoSessao = document.getElementById("sessaoUsuario")
       botaoCadastro.style.display="block"
-     
+     logadoSessao.innerHTML = 
+     `
+     Olá ${nomeLogado}
+     `
+    }else{
+      
     }
       
 
@@ -335,7 +344,7 @@ console.log(ocupList)
 
 for (let list = 0; list < ocupList.length; list++) {
    console.log(ocupList[list]['ocupation'])
-listOcup.innerHTML +=
+listOcup.innerHTML +=personCadList
 `
 <option value="${ocupList[list]['ocupation']}">${ocupList[list]['ocupation']}</option>
 

@@ -162,3 +162,33 @@ margin-bottom: 30px;
     color: white;
     margin-right: 0;
 }
+
+.divSaida{
+    width: 100%;
+    text-align: right;
+    padding-right: 30px;
+}
+
+.divLogout{
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    justify-content: flex-end;
+    width: 250px;
+    
+}
+
+.divLogout button{
+    background: none;
+    border: none;
+}
+.divLogout button i{
+    
+    color: white;
+}
+#sessaoUsuario{
+    color: white;
+ font-size: 19px;
+ width: 100%;
+ text-align: center;   
+}

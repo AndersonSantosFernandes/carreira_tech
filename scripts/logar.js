@@ -46,5 +46,5 @@ const logOut = () => {
     //Redireciona de volta para index
     location.href = "index.html"
 
-    Swal.fire("E-mail ou senha nválidos ou não cadastrado!");
+   
 }

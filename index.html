@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br"> 
 
 <head>
     <meta charset="UTF-8">
@@ -89,66 +89,66 @@
         </table>
          
        <!-- Cadastrar item --> 
-<div class="cadastrar_item" id="cadastrar_item" style="display: none;">
+        <div class="cadastrar_item" id="cadastrar_item" style="display: none;">
 
 
-<div class="voltar">
+                    <div class="voltar">
 
-             <label for="btn_volta"><i class="bi bi-arrow-left"></i></label>
-             <h4 id="btn_volta" class="btn_volta" onclick="hideCadastro()">Voltar</h4>
-       
-</div>
+                                <label for="btn_volta"><i class="bi bi-arrow-left"></i></label>
+                                <h4 id="btn_volta" class="btn_volta" onclick="hideCadastro()">Voltar</h4>
+                        
+                    </div>
 
-<div class="criar_novo">
-    <h2>Crie um novo item</h2>
-</div>
+                    <div class="criar_novo">
+                        <h2>Crie um novo item</h2>
+                    </div>
 
-<div class="formulario_item" >
-    <label for="item">Item</label><br>
-    <input class="inputz" type="text" name="" id="item" placeholder="Digite o nome do item">
-    <br>
-    <label for="select_item">Selecione o nível de gravidade</label><br>
-    <select name="" id="select_item">
-        <option value="">Selecione uma opção</option>
-        <option value="Alto">Alto</option>
-        <option value="Médio">Médio</option>
-        <option value="Baixo">Baixo</option>
-    </select>
-    <br>
-    <label for="dias_resolucao">Tempo de resolução (em dias)</label><br>
-    <input type="number" name="" id="dias_resolucao" placeholder="Digite o número em dias" min="1">
+                    <div class="formulario_item" >
+                        <label for="item">Item</label><br>
+                        <input class="inputz" type="text" name="" id="item" placeholder="Digite o nome do item">
+                        <br>
+                        <label for="select_item">Selecione o nível de gravidade</label><br>
+                        <select name="" id="select_item">
+                            <option value="">Selecione uma opção</option>
+                            <option value="Alto">Alto</option>
+                            <option value="Médio">Médio</option>
+                            <option value="Baixo">Baixo</option>
+                        </select>
+                        <br>
+                        <label for="dias_resolucao">Tempo de resolução (em dias)</label><br>
+                        <input type="number" name="" id="dias_resolucao" placeholder="Digite o número em dias" min="1">
 
-    <input type="hidden" id="usuario_logado" value="anderson@mobyan.com">
-    <!-- <input type="hidden" id="data_cadastro" value="1978/10/18"> -->
+                        <input type="hidden" id="usuario_logado" value="anderson@mobyan.com">
+                        <!-- <input type="hidden" id="data_cadastro" value="1978/10/18"> -->
+
+                        
+                        <p>
+                            <button class="btn_save_item" onclick="newItem()">Salvar</button>
+                        
+                            
+                        </p>
+        </div>
 
     
-    <p>
-        <button class="btn_save_item" onclick="newItem()">Salvar</button>
-       
-        
-    </p>
-</div>
-
-    
-</div>
+        </div>
 
 
-<!-- editar item -->
-<div class="editItem" id="editItem" style="display: none;">
+        <!-- editar item -->
+        <div class="editItem" id="editItem" style="display: none;">
 
 
-    <div class="voltar">
+            <div class="voltar">
     
                  <label for="btn_volta"><i class="bi bi-arrow-left"></i></label>
                  <h4 id="btn_volta" class="btn_volta" onclick="hideEdit()">Voltar</h4>
            
-    </div>
+         </div>
     
-    <div class="criar_novo">
+            <div class="criar_novo">
         <h2>Editar item</h2>
-    </div>
+            </div>
     
-    <div class="formulario_item" id="formularioItem" >
+        <div class="formulario_item" id="formularioItem" >
         <label for="item">Item</label><br>
         <input class="inputz" type="text" name="" id="item" placeholder="Digite o nome do item">
         <br>
@@ -172,91 +172,68 @@
            
             
         </p>
-    </div>
+        </div>
     
      
    
-    </div>
-    <!-- Menu lateral esquerdo -->
-    <div class="cadastrando" id="cadastrando" style="display: none;">
-
-        <h1 onclick="hideEsc()" class="fechaCadastro">X</h1>
-
-        <!-- Alguns dos principais eventos incluem: click, dblclick, mouseover / mouseout, mousedown /
-         mouseup, keydown, keyup, input, change, submit, scroll, entre outros -->
-
-
-         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Launch demo modal
-        </button>
-        
-        <button type="button" onclick="logOut()">Sair</button>
-        
-    </div> 
-        <!-- <div id="formInit">
-            <div id="init1">
-                <div>
-                    <h3 id="titleForm">Insira e-mail e senha para logar</h3>
-                </div>
-
-                <div style="text-align:center;">
-                    <input type="email" id="email" placeholder="Email" required><br>
-                    <input type="password" id="password" placeholder="Password" required><br>
-                    <button  class="btnAcao" onclick="logar()">Logar</button>
-                </div>
+        </div>
+        <!-- Menu lateral esquerdo -->
+        <div class="cadastrando" id="cadastrando" style="display: none;">
+            <div class="divSaida">
+            <h3 onclick="hideEsc()" class="fechaCadastro">Fechar X</h3>
             </div>
-            <button class="btnGiro" id="btn1" onclick="girarCadastro()">Ir para cadastro</button>
-            <div style="transform: perspective(200px) rotatey(180deg); opacity: 0; display:none;" id="init2">
-
-                <div>
-                    <h3 id="titleForm">Preencha para se cadastrar</h3>
-                </div>
-                <div style="text-align:center;">
-                    <input type="text" id="userCadastro" placeholder="Seu nome" required>
-                    <input type="email" id="emailCadastro" placeholder="Email" required><br>
-                    <input type="password" id="passwordCadastro" placeholder="Senha" min="6" max="16" required><br>
-                    <input type="password" id="confPasswordCadastro" placeholder="Confirmar senha" min="6" max="16"
-                        required>
-                    <button class="btnAcao" onclick="gravar()">Salvar</button>
-                   
-                </div>
+        
+            <div id="sessaoUsuario">
+            <p>Usuário</p>
             </div>
-            <button class="btnGiro" style="opacity: 0; transform: perspective(200px) rotatey(180deg);" id="btn2"
-                onclick="girarLogin()">Ir para login</button>
-        </div> -->
+            <!-- Alguns dos principais eventos incluem: click, dblclick, mouseover / mouseout, mousedown /
+            mouseup, keydown, keyup, input, change, submit, scroll, entre outros -->
+
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+               Logar / Cadastrar
+            </button>
+            
+            <div class="divLogout">
+                <button type="button" onclick="logOut()"><i class="bi bi-box-arrow-right"></i></button>
+            </div>
+            
+        
+        </div> 
+       
     </main>
    
   
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Logar / Cadastrar</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
+            </div>
+            <div class="modal-body">
           
-<div id="formInit">
-            <div id="init1">
-                <div>
+            <div id="formInit">
+                <div id="init1">
+                    <div>
                     <h3 id="titleForm">Insira e-mail e senha para logar</h3>
-                </div>
+                    </div>
 
-                <div style="text-align:center;">
+                    <div style="text-align:center;">
                     <input type="email" id="email" placeholder="Email" required><br>
                     <input type="password" id="password" placeholder="Password" required><br>
                     <button  class="btnAcao" onclick="logar()">Logar</button>
-                </div>
-            </div>
-            <button class="btnGiro" id="btn1" onclick="girarCadastro()">Ir para cadastro</button>
-            <div style="transform: perspective(200px) rotatey(180deg); opacity: 0; display:none;" id="init2">
+                    </div>
+                 </div>
+                 <button class="btnGiro" id="btn1" onclick="girarCadastro()">Ir para cadastro</button>
+                    <div style="transform: perspective(200px) rotatey(180deg); opacity: 0; display:none;" id="init2">
 
-                <div>
+                 <div>
                     <h3 id="titleForm">Preencha para se cadastrar</h3>
-                </div>
-                <div style="text-align:center;">
+                 </div>
+                 <div style="text-align:center;">
                     <input type="text" id="userCadastro" placeholder="Seu nome" required>
                     <input type="email" id="emailCadastro" placeholder="Email" required><br>
                     <input type="password" id="passwordCadastro" placeholder="Senha" min="6" max="16" required><br>
@@ -264,24 +241,25 @@
                         required>
                     <button class="btnAcao" onclick="gravar()">Salvar</button>
                    
+                 </div>
                 </div>
-            </div>
-            <button class="btnGiro" style="opacity: 0; transform: perspective(200px) rotatey(180deg);" id="btn2"
+                <button class="btnGiro" style="opacity: 0; transform: perspective(200px) rotatey(180deg);" id="btn2"
                 onclick="girarLogin()">Ir para login</button>
-        </div>
+            </div>
 
 
-        </div>
-        <div class="modal-footer">
+            </div>
+            <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          
         </div>
-      </div>
-    </div>
-  </div>
+        </div>
+        </div>
+        </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/logar.js"></script>
+    <script src="./scripts/editar.js"></script>
     <script src="lista.js"></script>
 </body>
 
