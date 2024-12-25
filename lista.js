@@ -172,44 +172,99 @@ function newItem() {
 // inserir itens #################################
 
 
-
-
+page = null
+function change(asd){
+   alert(asd)
+   page1 = asd
+}
 
 
 //Lista de itens cadastrados
 
 let showBody = document.getElementById('bodyPersons')
-
-
+let message = document.getElementById('msgEmpty')
+let paginacao = document.getElementById("interPagination")
+let paginacao1 = document.getElementById("paginacao")
 //lista de itens ############################### inicio
 
 
-
-for (let li = 0; li < itemsCadList.length; li++) {
-
-   //Corpo da tabela
-   showBody.innerHTML +=
-   `
-   <tr class="linha_item " >
-      <td >${itemsCadList[li]['newItem']}</td>
-      <td class="centralizar">${itemsCadList[li]['newSelect']}</td>
-      <td class="centralizar">${itemsCadList[li]['newResolucao']}</td>
-      <td class="centralizar ">
-         <div class="form-check form-switch">
-         <input  class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-         <label  class="form-check-label" for="flexSwitchCheckChecked"></label>
-         </div>
-      </td>
-      <td   class="centralizar hideColumn" > ${itemsCadList[li]['newData']} </td>
-      <td   class="centralizar hideColumn" > ${itemsCadList[li]['newLogado']} </td>
-      <td class="centralizar">
-      <button class="btnEdit" onclick="editItem('${li}')"><i class="bi bi-pencil"></i></button>
-      
-      </td>
-      
-    </tr>
+   
+if(itemsCadList == null){
+   paginacao1.style.display ="none"
+   message.innerHTML = 
+   `     
+   <h1 class="msgNull"> Nada cadastrado ainda </h1>
    
    `
+}else{
+
+   if(page == null){
+      page = 1
+   }else{
+      page = page1
+   }
+
+   paginacao1.style.display ="block"
+  
+
+   const itensPagina = 5
+
+   totalPages = Math.ceil(itemsCadList.length / itensPagina)
+
+   const cont = page * itensPagina
+
+   const increment = (page * itensPagina) - itensPagina
+
+   console.log("itens por página ",itensPagina )
+   console.log("Página ",page )
+   console.log("Contador ",cont )
+   console.log("Incrementar ",increment )
+   console.log("Total cadastrado ", itemsCadList.length)
+
+   for(let pa = 1 ; pa < totalPages+1 ; pa++){
+
+   paginacao.innerHTML += 
+   `
+   
+   <li class="page-item " onclick=" change(${pa})"  ><a class="page-link" style="cursor: pointer ;"> ${pa}</a></li>
+   `
+
+}
+
+
+
+for (let li = increment; li < cont; li++) {
+   
+  
+//Corpo da tabela
+showBody.innerHTML +=
+`
+<tr class="linha_item " >
+   <td >${itemsCadList[li]['newItem']}</td>
+   <td class="centralizar">${itemsCadList[li]['newSelect']}</td>
+   <td class="centralizar">${itemsCadList[li]['newResolucao']}</td>
+   <td class="centralizar ">
+      <div class="form-check form-switch">
+      <input  class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+      <label  class="form-check-label" for="flexSwitchCheckChecked"></label>
+      </div>
+   </td>
+   <td   class="centralizar hideColumn" > ${itemsCadList[li]['newData']} </td>
+   <td   class="centralizar hideColumn" > ${itemsCadList[li]['newLogado']} </td>
+   <td class="centralizar">
+   <button class="btnEdit" onclick="editItem('${li}')"><i class="bi bi-pencil"></i></button>
+   
+   </td>
+   
+ </tr>
+
+`
+
+
+
+   }
+
+   
 }   
 
 

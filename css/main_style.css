@@ -129,7 +129,7 @@ margin-bottom: 30px;
 
 .linha_item td, th{
     
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 5px;
     width: 100px;
     
@@ -221,4 +221,57 @@ margin-bottom: 30px;
 }
 .inputLateral p{
     color: white;
+}
+
+.divBtnLog{
+    width: 100%;
+    text-align: center;
+}
+.logCad{
+    width: 90%;
+    background-color: #D6F54F;
+    font-weight: bold;
+    margin: auto;
+    border-radius: 20px;
+    height: 40px;
+}
+.btnAcao{
+    width: 50%;
+    /* background-color: #D6F54F; */
+    font-weight: bold;
+    margin:5px auto;
+    border-radius: 20px;
+    height: 40px;
+    background-color: #263C18;
+    color: white;
+}
+.btnGiro{
+    width: 100px;
+    background-color: #D6F54F;
+    font-size: 12px;
+    font-weight: bold;
+    
+    margin:5px auto;
+    border-radius: 20px;
+    height: 20px;
+}
+
+.msgNull{
+    width: 100%;
+    height: 40vh;
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.liPage{
+    display: flex;
+    flex-direction: row;
+}
+.pagination{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
 }

@@ -91,27 +91,34 @@
               </tbody>
         </table>
 
+        <div id="msgEmpty">
+
+        </div>
+
         <div class="paginacao" id="paginacao">
 
-            <ul class="pagination">
+             <ul class="pagination">
                 <li class="page-item" onclick="ativar(this)"> <a class="page-link" href="#">Anterior</a></li>
-                <li class="page-item active" onclick="ativar(this)"  ><a class="page-link"  href="#"> 1</a></li>
+                <span id="interPagination" class="liPage">
+                   
+                </span>                
                 <li class="page-item" onclick="ativar(this)"> <a class="page-link" href="#">Próxima</a></li>
             </ul>
-           
-<script>
-    const ativar=(elemento)=>{
-        let itens=document.getElementsByClassName("page-item")
-        for(i=0;i<itens.length; i++){
-            itens[i].classList.remove("active")
-            
-        }
-        elemento.classList.add("active")
-    }
-</script>
 
         </div>
          
+        <script>
+            const ativar=(elemento)=>{
+
+                let itens=document.getElementsByClassName("page-item")
+                for(i=0;i<itens.length; i++){
+                    itens[i].classList.remove("active")                        
+                }
+                elemento.classList.add("active")
+            }
+        </script>
+
+
        <!-- Cadastrar item --> 
         <div class="cadastrar_item" id="cadastrar_item" style="display: none;">
 
@@ -146,7 +153,7 @@
 
                         
                         <p>
-                            <button class="btn_save_item" onclick="newItem()">Salvar</button>
+                            <button  class="btn_save_item" onclick="newItem()">Salvar</button>
                         
                             
                         </p>
@@ -201,7 +208,7 @@
    
         </div>
         <!-- Menu lateral esquerdo -->
-        <div class="cadastrando" id="cadastrando" style="display: non;">
+        <div class="cadastrando" id="cadastrando" style="display: none;">
             <div class="divSaida">
             <h6 onclick="hideEsc()" class="fechaCadastro">Fechar X</h6>
             </div>
@@ -228,9 +235,12 @@
                 </div>
 
             <!-- Button trigger modal -->
-            <button type="button" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-               Logar / Cadastrar
-            </button>
+            <div class="divBtnLog">
+                <button type="button" class="logCad" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Logar / Cadastrar
+                 </button>
+                 
+            </div>
             
             <div class="divLogout">
                 <button type="button" onclick="logOut()"><i class="bi bi-box-arrow-right">Sair</i> </button>
