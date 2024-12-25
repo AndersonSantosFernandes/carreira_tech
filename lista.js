@@ -1,23 +1,4 @@
-let usando1 = JSON.parse(sessionStorage.getItem('usuarioLogado'))
-// alert(usando1.nomeSessao +" "+usando1.emailSessao)
-let nomeLogado = usando1.nomeSessao
-let emailLogado = usando1.emailSessao
 
-
-
-
-if(sessionStorage.getItem('usuarioLogado')){
-        let botaoCadastro = document.getElementById("novoItem_btn")
-        let logadoSessao = document.getElementById("sessaoUsuario")
-      botaoCadastro.style.display="block"
-     logadoSessao.innerHTML = 
-     `
-     Olá ${nomeLogado}
-     `
-    }else{
-      
-    }
-      
 
 const itemsCadList = JSON.parse(localStorage.getItem('itemsCad'))
 
@@ -59,10 +40,7 @@ function editItem( indiceUpdate){
         <br>
         <label for="dias_resolucaoUp">Tempo de resolução (em dias)</label><br>
         <input  value="${arraySelectItem[sel]['newResolucao']}" type="number" name="" id="dias_resolucaoUp" placeholder="Digite o número em dias" min="1">
-    
-        <input type="hidden" id="usuario_logado" value="andersantfer@mobyan.com">
-        <input type="hidden" id="data_cadastro" value="1978/10/18">   
-        
+            
         <p>
             <button class="btn_save_item" onclick="saveEditionItem('${sel}')">Salvar</button>
            
@@ -88,8 +66,7 @@ function saveEditionItem(indiceSaveItem){
 let upItemItem = document.getElementById('itemUp')
 let upSelectItem = document.getElementById('select_itemUp')
 let upResolucaoItem = document.getElementById('dias_resolucaoUp')
-let upUsuarioItem = document.getElementById('usuario_logado')
-let upDataCadItem = document.getElementById('data_cadastro')
+
 
 //Obtenção de data para formar o nome do PDF
 const pdfData = new Date()
@@ -150,22 +127,21 @@ function newItem() {
     let item = document.getElementById('item')
     let select_item = document.getElementById('select_item')
     let dias_resolucao = document.getElementById('dias_resolucao')
-    let usuario_logado = document.getElementById('usuario_logado')
-    let data_cadastro = document.getElementById('data_cadastro')
+   
 
     
       //Obtenção de data para formar o nome do PDF
-const pdfData = new Date()
-const year = String(pdfData.getFullYear())
-const month = String(pdfData.getMonth()+1).padStart(2,'0')
-const day = String(pdfData.getDay()).padStart(2,'0')
-const hour = String(pdfData.getHours()).padStart(2,'0')
-const minut = String(pdfData.getMinutes()).padStart(2,'0')
+      const pdfData = new Date()
+      const year = String(pdfData.getFullYear())
+      const month = String(pdfData.getMonth()+1).padStart(2,'0')
+      const day = String(pdfData.getDay()).padStart(2,'0')
+      const hour = String(pdfData.getHours()).padStart(2,'0')
+      const minut = String(pdfData.getMinutes()).padStart(2,'0')
 
-const second = String(pdfData.getSeconds()).padStart(2,'0')
+      const second = String(pdfData.getSeconds()).padStart(2,'0')
 
-// const concatName = `${year}-${month}-${day}-${hour}:${minut}:${second}.pdf`
-const concatName = `${day}-${month}-${year}<br>${hour}:${minut}:${second}`
+      // const concatName = `${year}-${month}-${day}-${hour}:${minut}:${second}.pdf`
+      const concatName = `${day}-${month}-${year}<br>${hour}:${minut}:${second}`
 
 
 
@@ -198,12 +174,16 @@ const concatName = `${day}-${month}-${year}<br>${hour}:${minut}:${second}`
 
 
 
+
+
 //Lista de itens cadastrados
 
 let showBody = document.getElementById('bodyPersons')
 
 
 //lista de itens ############################### inicio
+
+
 
 for (let li = 0; li < itemsCadList.length; li++) {
 
@@ -220,8 +200,8 @@ for (let li = 0; li < itemsCadList.length; li++) {
          <label  class="form-check-label" for="flexSwitchCheckChecked"></label>
          </div>
       </td>
-      <td class="centralizar">${itemsCadList[li]['newData']}</td>
-      <td class="centralizar">${itemsCadList[li]['newLogado']}</td>
+      <td   class="centralizar hideColumn" > ${itemsCadList[li]['newData']} </td>
+      <td   class="centralizar hideColumn" > ${itemsCadList[li]['newLogado']} </td>
       <td class="centralizar">
       <button class="btnEdit" onclick="editItem('${li}')"><i class="bi bi-pencil"></i></button>
       
@@ -237,6 +217,40 @@ for (let li = 0; li < itemsCadList.length; li++) {
 // ####################################################################################################
 // ####################################################################################################
 // ####################################################################################################
+
+
+
+//esconder duas colunas de informação
+function information(){
+   let showInformation = document.getElementById("flexSwitchCheckChecked")
+   
+   if(showInformation.checked == true){
+
+      
+      let estilo = document.getElementById("styleShow")
+      estilo.innerHTML = 
+      `
+      .hideColumn{
+         display: "";
+            padding: 30px;
+            margin-left: 40px;
+     }
+      `
+   }else{
+     
+      let estilo = document.getElementById("styleShow")
+      estilo.innerHTML = 
+      `
+      .hideColumn{
+         display: none;
+         
+     }
+      `
+   }
+}
+
+
+
 
 if (personCadList.length == 0) {
    showList.innerHTML +=
