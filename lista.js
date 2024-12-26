@@ -173,7 +173,7 @@ function newItem() {
 // inserir itens #################################
 
 
-page = 3
+page = 1
 
 
 
