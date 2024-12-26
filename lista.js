@@ -68,18 +68,20 @@ let upSelectItem = document.getElementById('select_itemUp')
 let upResolucaoItem = document.getElementById('dias_resolucaoUp')
 
 
-//Obtenção de data para formar o nome do PDF
-const pdfData = new Date()
-const year = String(pdfData.getFullYear())
-const month = String(pdfData.getMonth()+1).padStart(2,'0')
-const day = String(pdfData.getDay()).padStart(2,'0')
-const hour = String(pdfData.getHours()).padStart(2,'0')
-const minut = String(pdfData.getMinutes()).padStart(2,'0')
+//Obtenção de data
+const dataAtual = new Date()
+//padStart(x,x) serve para quando se deseja mostrar um numero sosinho
+//como dia, de 1 a 9 o 0 é acrescentado a esquerda             
+const dia = String(dataAtual.getDate()).padStart(2, '0')
+// O mes começa em '0' necessitando adicionar mais 1 pra ficar correto
+const mes = String(dataAtual.getMonth() + 1).padStart(2, '0')
+const ano = String(dataAtual.getFullYear())
 
-const second = String(pdfData.getSeconds()).padStart(2,'0')
+const hora = String(dataAtual.getHours())
+const minuto = String(dataAtual.getMinutes())
+const segundo = String(dataAtual.getSeconds())
 
-// const concatName = `${year}-${month}-${day}-${hour}:${minut}:${second}.pdf`
-const concatName = `${day}-${month}-${year}<br>${hour}:${minut}:${second}`
+const concatName = `${dia}/${mes}/${ano} <br> ${hora}:${minuto}:${segundo}`
 
 
 
@@ -129,23 +131,22 @@ function newItem() {
     let dias_resolucao = document.getElementById('dias_resolucao')
    
 
+            //Obtenção de data
+         const dataAtual = new Date()
+         //padStart(x,x) serve para quando se deseja mostrar um numero sosinho
+         //como dia, de 1 a 9 o 0 é acrescentado a esquerda             
+         const dia = String(dataAtual.getDate()).padStart(2, '0')
+         // O mes começa em '0' necessitando adicionar mais 1 pra ficar correto
+         const mes = String(dataAtual.getMonth() + 1).padStart(2, '0')
+         const ano = String(dataAtual.getFullYear())
+
+         const hora = String(dataAtual.getHours())
+         const minuto = String(dataAtual.getMinutes())
+         const segundo = String(dataAtual.getSeconds())
+
+         const concatName = `${dia}/${mes}/${ano} <br> ${hora}:${minuto}:${segundo}`
     
-      //Obtenção de data para formar o nome do PDF
-      const pdfData = new Date()
-      const year = String(pdfData.getFullYear())
-      const month = String(pdfData.getMonth()+1).padStart(2,'0')
-      const day = String(pdfData.getDay()).padStart(2,'0')
-      const hour = String(pdfData.getHours()).padStart(2,'0')
-      const minut = String(pdfData.getMinutes()).padStart(2,'0')
-
-      const second = String(pdfData.getSeconds()).padStart(2,'0')
-
-      // const concatName = `${year}-${month}-${day}-${hour}:${minut}:${second}.pdf`
-      const concatName = `${day}-${month}-${year}<br>${hour}:${minut}:${second}`
-
-
-
-    
+          
     // Evita salvar campos vazios
     if (item.value.length < 2 || select_item.value.length < 2 || dias_resolucao.value.length < 1 ) {
         // alert('Não deixe campos vazios')
@@ -172,11 +173,8 @@ function newItem() {
 // inserir itens #################################
 
 
-page = null
-function change(asd){
-   alert(asd)
-   page1 = asd
-}
+page = 3
+
 
 
 //Lista de itens cadastrados
@@ -198,11 +196,7 @@ if(itemsCadList == null){
    `
 }else{
 
-   if(page == null){
-      page = 1
-   }else{
-      page = page1
-   }
+   
 
    paginacao1.style.display ="block"
   
@@ -220,17 +214,15 @@ if(itemsCadList == null){
    console.log("Contador ",cont )
    console.log("Incrementar ",increment )
    console.log("Total cadastrado ", itemsCadList.length)
-
+  
    for(let pa = 1 ; pa < totalPages+1 ; pa++){
 
    paginacao.innerHTML += 
-   `
-   
+   `   
    <li class="page-item " onclick=" change(${pa})"  ><a class="page-link" style="cursor: pointer ;"> ${pa}</a></li>
    `
 
 }
-
 
 
 for (let li = increment; li < cont; li++) {
@@ -239,7 +231,7 @@ for (let li = increment; li < cont; li++) {
 //Corpo da tabela
 showBody.innerHTML +=
 `
-<tr class="linha_item " >
+<tr class="linha_item " disabled="disabled" >
    <td >${itemsCadList[li]['newItem']}</td>
    <td class="centralizar">${itemsCadList[li]['newSelect']}</td>
    <td class="centralizar">${itemsCadList[li]['newResolucao']}</td>
@@ -259,21 +251,13 @@ showBody.innerHTML +=
  </tr>
 
 `
-
-
-
    }
-
    
 }   
 
 
 // ####################################################################################################
 // ####################################################################################################
-// ####################################################################################################
-// ####################################################################################################
-
-
 
 //esconder duas colunas de informação
 function information(){
@@ -304,191 +288,7 @@ function information(){
    }
 }
 
-
-
-
-if (personCadList.length == 0) {
-   showList.innerHTML +=
-      `
-   <h3> Nenhuma pessoa cadastrada ainda </h3>
-   `
-} else {
-
-   //Exibe inpormações em tabela
-   if(sessionStorage.getItem('personList') == 'list'){
-
-      btnPdfs.style.display = 'block'
-      //Cabeçalho da tabela
-      showHeader.innerHTML = 
-      `
-      <h4 class="tituloHome">Lista de Pessoas</h4>
-      <tr>
-      <th>Nome</th>
-      <th>Sobrenome</th>
-      <th>E-mail</th>
-      <th>Cargo</th>            
-    </tr>
-      
-      `      
-      for (let li = 0; li < personCadList.length; li++) {
-
-         //Corpo da tabela
-         showBody.innerHTML +=
-         `
-         <tr>
-            <td>${personCadList[li]['name']}</td>
-            <td>${personCadList[li]['lastName']}</td>
-            <td>${personCadList[li]['email']}</td>
-            <td>${personCadList[li]['ocupation']}</td>
-          </tr>
-         
-         `
-      }     
-
-   }else{
-      btnPdfs.style.display = 'none'
-   
-      //Exibir informações em caards
-    for (let i = 0; i < personCadList.length; i++) {
-
-      showList.innerHTML += `
-    
-      <div class="card__person">
-         <h3>Nome: ${personCadList[i]['name']}</h3>
-         <h5>Sobrenome: ${personCadList[i]['lastName']}</h5>
-         <h5>e-mail: ${personCadList[i]['email']}</h5>
-         <h5 class="strong">Cargo: ${personCadList[i]['ocupation']}</h5>
-         <h5>Logradouro: ${personCadList[i]['street']}</h5>
-         <h5>Número: ${personCadList[i]['number']}</h5>
-         <h5>CEP: ${personCadList[i]['cep']}</h5>
-         <h5>Bairro: ${personCadList[i]['bairro']}</h5>
-         <h5>Cidade: ${personCadList[i]['city']}</h5>
-         <h5>UF:${personCadList[i]['state']}</h5>
-         
-         <hr>
-         <div class="out__btn">
-            <button class="btn btn-primary" onclick="deletePerson('${i}')">Apagar ${personCadList[i]['name']} </button>
-          
-            
-            <button type="button" class="btn btn-primary" onclick="updateUsers('${i}')" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Editar
-          </button>          
-
-          </div>
-      </div>
-    
-    `
-   }
-}
-}
-
-
-//Deleta de fato um apessoa cadastrada
-function deletePerson(indice) {
-
-   const listDelete = JSON.parse(localStorage.getItem('personCad'))
-
-   auxDelete = []
-   for (let j = 0; j < listDelete.length; j++) {
-
-      if (j == indice) {        
-
-         auxDelete = listDelete        
-
-         auxDelete.splice(indice, 1)
-
-         localStorage.setItem('personCad', JSON.stringify(auxDelete))
-      }
-
-   }
-
-   location.href = "lista.html"
-}
-
-
-//Lista de cargos
-const ocupList = JSON.parse(localStorage.getItem('ocupations'))
-const listOcup = document.getElementById('editSelect')
-console.log(ocupList)
-
-for (let list = 0; list < ocupList.length; list++) {
-   console.log(ocupList[list]['ocupation'])
-listOcup.innerHTML +=personCadList
-`
-<option value="${ocupList[list]['ocupation']}">${ocupList[list]['ocupation']}</option>
-
-` 
-   
-}
-
-
-//Seleciona o arquivo para edição
-arraySelectPerson = []
-function updateUsers(indiceUpdate) {
-
-   let editPersons = document.getElementById('editPerson')
-   arraySelectPerson = personCadList
-
-   for (let sel = 0; sel < arraySelectPerson.length; sel++) {
-
-      if (indiceUpdate == sel) {
-         
-         editPersons.innerHTML = `
-         
-         <input class="modalInput" value="${arraySelectPerson[sel]['name']}" type="text" name="" id="name">
-         <input class="modalInput" value="${arraySelectPerson[sel]['lastName']}" type="text" name="" id="lastName">
-         <input class="modalInput" value="${arraySelectPerson[sel]['email']}" type="email" name="" id="email" disabled="disabled">
-
-         <input class="modalInput" value="${arraySelectPerson[sel]['street']}" type="email" name="" id="myStreet">
-         <input class="modalInput" value="${arraySelectPerson[sel]['number']}" type="email" name="" id="myNumber">
-         <input class="modalInput" value="${arraySelectPerson[sel]['bairro']}" type="email" name="" id="myBairro">
-         <input class="modalInput" value="${arraySelectPerson[sel]['cep']}" type="email" name="" id="myCep">
-         <input class="modalInput" value="${arraySelectPerson[sel]['city']}" type="email" name="" id="myCity">
-         <input class="modalInput" value="${arraySelectPerson[sel]['state']}" type="email" name="" id="myState">
-                  <hr>
-         <button type="button" class="btn btn-primary"  onclick="saveEdition('${sel}')" >
-         Salvar
-          </button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancela</button>
-         `
-      }
-   }
-}
-
-//================================EDIÇÃO=========================
-// Salvamento de fato da edição
-arrayUpdate = []
-function saveEdition(indiceSave){
-   arrayUpdate = personCadList
-let upName = document.getElementById('name')
-let upLastName = document.getElementById('lastName')
-let upEmail = document.getElementById('email')
-let upOcupation = document.getElementById('editSelect')
-
-
-
-   for (let update = 0; update < arrayUpdate.length; update++) {
-      
-      if(update == indiceSave){
-         arrayUpdate[update]['name'] = upName.value
-         arrayUpdate[update]['lastName'] = upLastName.value
-         arrayUpdate[update]['email'] = upEmail.value
-         arrayUpdate[update]['ocupation'] = upOcupation.value
-
-        
-         
-         localStorage.setItem('personCad', JSON.stringify(arrayUpdate))
-
-         location.href = "lista.html"
-      }      
-   }  
-}
-
-//================================EDIÇÃO=========================
-
-
-
-
+// Funções que mostram e escondem a tela de edição
 function hideEsc(){
 
    let hideCad = document.getElementById("cadastrando")
