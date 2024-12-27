@@ -140,9 +140,9 @@ function newItem() {
          const mes = String(dataAtual.getMonth() + 1).padStart(2, '0')
          const ano = String(dataAtual.getFullYear())
 
-         const hora = String(dataAtual.getHours())
-         const minuto = String(dataAtual.getMinutes())
-         const segundo = String(dataAtual.getSeconds())
+         const hora = String(dataAtual.getHours()).padStart(2, '0')
+         const minuto = String(dataAtual.getMinutes()).padStart(2, '0')
+         const segundo = String(dataAtual.getSeconds()).padStart(2, '0')
 
          const concatName = `${dia}/${mes}/${ano} <br> ${hora}:${minuto}:${segundo}`
     
@@ -172,8 +172,8 @@ function newItem() {
 
 // inserir itens #################################
 
-
-page = 1
+paginando = sessionStorage.getItem('paginacao')
+page = paginando
 
 
 
@@ -203,6 +203,7 @@ if(itemsCadList == null){
 
    const itensPagina = 5
 
+
    totalPages = Math.ceil(itemsCadList.length / itensPagina)
 
    const cont = page * itensPagina
@@ -219,7 +220,7 @@ if(itemsCadList == null){
 
    paginacao.innerHTML += 
    `   
-   <li class="page-item " onclick=" change(${pa})"  ><a class="page-link" style="cursor: pointer ;"> ${pa}</a></li>
+   <li class="page-item " onclick="change(${pa})"><a class="page-link" style="cursor: pointer ;"> ${pa}</a></li>
    `
 
 }
@@ -231,12 +232,12 @@ for (let li = increment; li < cont; li++) {
 //Corpo da tabela
 showBody.innerHTML +=
 `
-<tr class="linha_item " disabled="disabled" >
+<tr class="linha_item " id="linha-${li}" >
    <td >${itemsCadList[li]['newItem']}</td>
    <td class="centralizar">${itemsCadList[li]['newSelect']}</td>
    <td class="centralizar">${itemsCadList[li]['newResolucao']}</td>
    <td class="centralizar ">
-      <div class="form-check form-switch">
+      <div class="form-check form-switch centralizar alinhar">
       <input  class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
       <label  class="form-check-label" for="flexSwitchCheckChecked"></label>
       </div>
@@ -244,49 +245,16 @@ showBody.innerHTML +=
    <td   class="centralizar hideColumn" > ${itemsCadList[li]['newData']} </td>
    <td   class="centralizar hideColumn" > ${itemsCadList[li]['newLogado']} </td>
    <td class="centralizar">
-   <button class="btnEdit" onclick="editItem('${li}')"><i class="bi bi-pencil"></i></button>
-   
-   </td>
-   
+   <button class="btnEdit" onclick="editItem('${li}')"><i class="bi bi-pencil"></i></button>   
+   </td>   
  </tr>
-
 `
    }
    
 }   
 
-
 // ####################################################################################################
 // ####################################################################################################
-
-//esconder duas colunas de informação
-function information(){
-   let showInformation = document.getElementById("flexSwitchCheckChecked")
-   
-   if(showInformation.checked == true){
-
-      
-      let estilo = document.getElementById("styleShow")
-      estilo.innerHTML = 
-      `
-      .hideColumn{
-         display: "";
-            padding: 30px;
-            margin-left: 40px;
-     }
-      `
-   }else{
-     
-      let estilo = document.getElementById("styleShow")
-      estilo.innerHTML = 
-      `
-      .hideColumn{
-         display: none;
-         
-     }
-      `
-   }
-}
 
 // Funções que mostram e escondem a tela de edição
 function hideEsc(){

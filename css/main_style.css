@@ -124,7 +124,7 @@ margin-bottom: 30px;
 .linha_item{
     height: 50px;
     /* border: 1px solid black; */
-    border-bottom: 1px solid #4CD0A2;
+    border-bottom: 1px solid #afc0ba;
 }
 
 .linha_item td, th{
@@ -176,12 +176,12 @@ margin-bottom: 30px;
 }
 
 .divLogout{
-    position: fixed;
-    bottom: 0px;
+    /* position: fixed; */
+    margin-top: 50px;
     display: flex;
-    justify-content: flex-end;
-    width: 250px;
-    
+    justify-content: center;
+    width: 100%;
+
 }
 
 .divLogout button{
@@ -274,4 +274,9 @@ margin-bottom: 30px;
     display: flex;
     justify-content: center;
     margin-top: 5px;
+}
+
+.alinhar{
+    display: flex;
+    justify-content: center;
 }

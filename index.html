@@ -64,6 +64,7 @@
 
         <div class="superior2">
             <div class="form-check form-switch">
+                <!-- <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" onchange="ligaDetalhe()" > -->
                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" onchange="information()" >
                 <label  class="form-check-label" for="flexSwitchCheckChecked">Visualizar mais detalhes</label>
             </div>
@@ -72,17 +73,17 @@
         </div>
         <table class="tabela">
             <thead>
-                <tr class="cabecalho_tabela">
-                    <th>Item</th>
-                    <th>Nível de <br> gravidade</th>
-                    <th>Dias para <br>resolução</th>
-                    <th>Status</th>
+                <tr class="cabecalho_tabela linha_item">
+                    <th >Item</th>
+                    <th class="centralizar">Nível de <br> gravidade</th>
+                    <th class="centralizar">Dias para <br>resolução</th>
+                    <th class="centralizar">Status</th>
                    
-                        <th class="hideColumn"> Última <br>ediçaõ</th>
-                        <th class="hideColumn"> Editor </th>
+                        <th class="hideColumn centralizar"> Última <br>ediçaõ</th>
+                        <th class="hideColumn centralizar"> Editor </th>
                 
                     
-                    <th>Edição</th>
+                    <th class="centralizar">Edição</th>
                 </tr>
             </thead>
            
@@ -98,11 +99,11 @@
         <div class="paginacao" id="paginacao">
 
              <ul class="pagination">
-                <li class="page-item" onclick="ativar(this)"> <a class="page-link" href="#">Anterior</a></li>
+                <li  id="pageItemDown" style="display: none;" class="page-item" onclick="anterior()" > <a class="page-link" href="#">Anterior</a></li>
                 <span id="interPagination" class="liPage">
                    
                 </span>                
-                <li class="page-item" onclick="ativar(this)"> <a class="page-link" href="#">Próxima</a></li>
+                <li class="page-item" style="display: none;" onclick="proxima()"> <a class="page-link" href="#">Próxima</a></li>
             </ul>
 
         </div>
@@ -244,8 +245,7 @@
             
             <div class="divLogout">
                 <button type="button" onclick="logOut()"><i class="bi bi-box-arrow-right">Sair</i> </button>
-            </div>
-            
+            </div>            
         
         </div> 
        
@@ -307,6 +307,7 @@
     <script src="./scripts/logar.js"></script>
     <script src="./scripts/editar.js"></script>
     <script src="./scripts/mostrar.js"></script>
+    <script src="./scripts/paginas.js"></script>
     
     <script src="lista.js"></script>
 </body>

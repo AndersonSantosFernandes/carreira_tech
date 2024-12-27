@@ -10,7 +10,7 @@ if(usando1 == null){
   Swal.fire({
     // position: "top-end",
     icon: "error",
-    title: "Para cadstrar e editar itens é necessário estar logado \n Faça o cadástro no menú lateral e logue eposteriormente",
+    title: "Para cadstrar e editar itens é necessário estar logado \n Faça o cadástro no menú lateral e logue posteriormente",
     showConfirmButton: false,
     timer: 3500
 });
