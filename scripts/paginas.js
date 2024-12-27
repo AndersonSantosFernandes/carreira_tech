@@ -1,4 +1,9 @@
 
+if(!sessionStorage['paginacao']){
+    sessionStorage.setItem('paginacao', 1)
+}
+
+
 
 function change(nrPage){
 
