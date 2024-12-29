@@ -1,29 +1,33 @@
 // Função que mostra o nome do usuario logado no menu lateral e habilita o botão de novo item ao logar.
 
 
-let usando1 = JSON.parse(sessionStorage.getItem('usuarioLogado'))
+let usando1 = sessionStorage.getItem('novoUser')
 
-if(usando1 == null){
+console.log('usando1',usando1)
+// let usando1 = JSON.parse(sessionStorage.getItem('usuarioLogado'))
 
-  // Swal.fire("Para cadstrar e editar itens é necessário estar logado \n Faça o cadástro no menú lateral e logue eposteriormente");
+// if(usando1 == null){
 
-  Swal.fire({
-    // position: "top-end",
-    icon: "error",
-    title: "Para cadstrar e editar itens é necessário estar logado \n Faça o cadástro no menú lateral e logue posteriormente",
-    showConfirmButton: false,
-    timer: 3500
-});
+//   // Swal.fire("Para cadstrar e editar itens é necessário estar logado \n Faça o cadástro no menú lateral e logue eposteriormente");
 
-
-}
-
-let nomeLogado = usando1.nomeSessao
-let emailLogado = usando1.emailSessao
+//   Swal.fire({
+//     // position: "top-end",
+//     icon: "error",
+//     title: "Para cadstrar e editar itens é necessário estar logado \n Faça o cadástro no menú lateral e logue posteriormente",
+//     showConfirmButton: false,
+//     timer: 3500
+// });
 
 
+// }
 
-if(sessionStorage.getItem('usuarioLogado')){
+let nomeLogado = usando1
+// let emailLogado = usando1.emailSessao
+
+
+
+if(sessionStorage.getItem('novoUser')){
+  // if(sessionStorage.getItem('usuarioLogado')){
   
     
         let botaoCadastro = document.getElementById("novoItem_btn")

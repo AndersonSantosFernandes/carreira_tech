@@ -1,5 +1,23 @@
 
 
+if(!sessionStorage.getItem('novoUser')){
+
+    var nome = window.prompt("digite um nome para criar sessão")
+
+
+
+    if(nome == null ){
+        var nome = window.prompt("Digite um nome para criar sessão")
+    }else{
+        sessionStorage.setItem('novoUser' , nome)
+    }
+    
+
+
+}
+
+
+
 //função que dá start nas ações de login
 function logar() {
 
@@ -33,6 +51,7 @@ function logar() {
 
     // Se não encontrar e-mail e senha que combinam a sessão não é criada e não executa o login
     if (!sessionStorage.getItem('usuarioLogado')) {
+        
         // alert('E-mail ou senha inválidos ou usuário não cadastrado')
         Swal.fire("E-mail ou senha nválidos ou não cadastrado!");
     }
@@ -40,9 +59,18 @@ function logar() {
 }
 
 
+// // Função que encerra a sessão
+// const logOut = () => {
+//     sessionStorage.clear('usuarioLogado')
+//     //Redireciona de volta para index
+//     location.href = "index.html"
+
+   
+// }
+
 // Função que encerra a sessão
 const logOut = () => {
-    sessionStorage.clear('usuarioLogado')
+    sessionStorage.clear('newUser')
     //Redireciona de volta para index
     location.href = "index.html"
 
