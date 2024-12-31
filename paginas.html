@@ -11,14 +11,33 @@
         .active {
             display: block;
         }
+        #showName{
+            width: 400px;
+            text-align: center;
+            font-size: 40px;
+        }
     </style>
 </head>
 <body>
     <div id="items-container"></div>
     <div id="pagination"></div>
     <button id="next-page">Próxima Página</button>
+<hr>
 
+<input type="text" name="" id="texto" placeholder="Digite">
+<div id="showName">
+
+</div>
     <script>
+
+        let digitando = document.getElementById("texto")
+        digitando.addEventListener('keyup', inserir)
+        function inserir(){
+            let show = document.getElementById("showName")
+            show.innerHTML=digitando.value
+            console.log(digitando.value)
+        }
+
         const items = [
             "Item 1", "Item 2", "Item 3", "Item 4", "Item 5",
             "Item 6", "Item 7", "Item 8", "Item 9", "Item 10",

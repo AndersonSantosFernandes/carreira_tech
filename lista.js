@@ -76,13 +76,11 @@ const dia = String(dataAtual.getDate()).padStart(2, '0')
 // O mes começa em '0' necessitando adicionar mais 1 pra ficar correto
 const mes = String(dataAtual.getMonth() + 1).padStart(2, '0')
 const ano = String(dataAtual.getFullYear())
-
-const hora = String(dataAtual.getHours())
-const minuto = String(dataAtual.getMinutes())
-const segundo = String(dataAtual.getSeconds())
+const hora = String(dataAtual.getHours()).padStart(2, '0')
+const minuto = String(dataAtual.getMinutes()).padStart(2, '0')
+const segundo = String(dataAtual.getSeconds()).padStart(2, '0')
 
 const concatName = `${dia}/${mes}/${ano} <br> ${hora}:${minuto}:${segundo}`
-
 
 
    for (let update = 0; update < arrayUpdateItem.length; update++) {
@@ -93,10 +91,7 @@ const concatName = `${dia}/${mes}/${ano} <br> ${hora}:${minuto}:${segundo}`
          arrayUpdateItem[update]['newResolucao'] = upResolucaoItem.value
          arrayUpdateItem[update]['newLogado'] = nomeLogado
          arrayUpdateItem[update]['newData'] = concatName
-         
-        
-        
-         
+                  
          localStorage.setItem('itemsCad', JSON.stringify(arrayUpdateItem))
 
          location.href = "index.html"
@@ -105,9 +100,6 @@ const concatName = `${dia}/${mes}/${ano} <br> ${hora}:${minuto}:${segundo}`
 }
 
 //================================EDIÇÃO itens final=========================
-
-
-
 
 //Trecho de codigo para exibir o cadastro de items
 
@@ -121,7 +113,6 @@ function hideCadastro(){
    mostraCadastro.style.display = 'none'
 }
 
-
 // inserir itens#################################
 helpArrayPerson = []//Array auxiliar itens
 function newItem() {
@@ -129,7 +120,6 @@ function newItem() {
     let item = document.getElementById('item')
     let select_item = document.getElementById('select_item')
     let dias_resolucao = document.getElementById('dias_resolucao')
-   
 
             //Obtenção de data
          const dataAtual = new Date()
@@ -139,7 +129,6 @@ function newItem() {
          // O mes começa em '0' necessitando adicionar mais 1 pra ficar correto
          const mes = String(dataAtual.getMonth() + 1).padStart(2, '0')
          const ano = String(dataAtual.getFullYear())
-
          const hora = String(dataAtual.getHours()).padStart(2, '0')
          const minuto = String(dataAtual.getMinutes()).padStart(2, '0')
          const segundo = String(dataAtual.getSeconds()).padStart(2, '0')
@@ -228,7 +217,7 @@ if(itemsCadList == null){
 
 for (let li = increment; li < cont; li++) {
    
-  
+  console.log('li', li)
 //Corpo da tabela
 showBody.innerHTML +=
 `
@@ -238,7 +227,7 @@ showBody.innerHTML +=
    <td class="centralizar">${itemsCadList[li]['newResolucao']}</td>
    <td class="centralizar ">
       <div class="form-check form-switch centralizar alinhar">
-      <input  class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+      <input  class="form-check-input some" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked onchange="hideRow(${li})">
       <label  class="form-check-label" for="flexSwitchCheckChecked"></label>
       </div>
    </td>
@@ -253,22 +242,37 @@ showBody.innerHTML +=
    
 }   
 
+function hideRow(line){
+   let switche = document.getElementsByClassName('some')
+   console.log('asasdsa',switche[line])
+   // switche.style.opacity = "50%"
+
+}
+
+
+// console.log('switch', switche[2].checked)
+// switche[0].addEventListener('change', desaparece)
+
+// function desaparece(){
+//    alaert(switche)
+// }
+
 // ####################################################################################################
 // ####################################################################################################
 
-// Funções que mostram e escondem a tela de edição
+// Funções que mostram e escondem o menú lateral
 function hideEsc(){
 
    let hideCad = document.getElementById("cadastrando")
    hideCad.style.display = "none"
-
+   
 }
 
 function showMenu(){
 
     let hideCad = document.getElementById("cadastrando")
    hideCad.style.display = "block"
-
+// hideCad.style.opacity = "50%"
 }
 
 
