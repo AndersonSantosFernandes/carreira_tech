@@ -2,6 +2,18 @@
 
 const itemsCadList = JSON.parse(localStorage.getItem('itemsCad'))
 
+const itemPorPagina = JSON.parse(localStorage.getItem('itemPorPagina'))
+
+if(!itemPorPagina){
+   localStorage.setItem('itemPorPagina', 5)
+   
+}
+
+function mudaNumeroPorPagina(){
+   let nppg = document.getElementById('itensPorPagina').value
+   localStorage.setItem('itemPorPagina', nppg)
+   location.href = "index.html"
+}
 
 // esconder editor de item 
 
@@ -190,7 +202,8 @@ if(itemsCadList == null){
    paginacao1.style.display ="block"
   
 
-   const itensPagina = 5
+   const itensPagina = itemPorPagina
+   // const itensPagina = 5
 
 
    totalPages = Math.ceil(itemsCadList.length / itensPagina)
@@ -199,11 +212,7 @@ if(itemsCadList == null){
 
    const increment = (page * itensPagina) - itensPagina
 
-   console.log("itens por página ",itensPagina )
-   console.log("Página ",page )
-   console.log("Contador ",cont )
-   console.log("Incrementar ",increment )
-   console.log("Total cadastrado ", itemsCadList.length)
+
   
    for(let pa = 1 ; pa < totalPages+1 ; pa++){
 
@@ -213,6 +222,25 @@ if(itemsCadList == null){
    `
 
 }
+function procurarItem(){
+
+      let procura = document.getElementById('campoBusca').value
+   if(procura.length === 0){
+      alert("Campo vazio")
+
+       icrem = (page * itensPagina) - itensPagina
+      con = page * itensPagina
+      alert(icrem)
+   }else{
+      alert(procura)
+       icrem = 0
+      con = itemsCadList.length
+      alert(icrem)
+   }
+   
+   
+}
+
 
 
 for (let li = increment; li < cont; li++) {

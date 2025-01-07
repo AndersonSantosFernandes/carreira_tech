@@ -35,6 +35,9 @@
 <hr>
 
 <input type="text" name="" id="texto" placeholder="Digite">
+<hr>
+<input type="text" name="" id="texto2" placeholder="Digite">
+<button id="buscaBtn">Buscar</button> 
 <div id="showName">
    
 </div>
@@ -60,17 +63,65 @@
       </tbody>
 </table>
 
+<br>
+
+<table class="tabela">
+    <thead>
+        <tr class="cabecalho_tabela linha_item">
+            <th >Item</th>
+            <th class="centralizar">Nível de <br> gravidade</th>
+            <th class="centralizar">Dias para <br>resolução</th>
+            <th class="centralizar">Status</th>
+           
+                <th class="hideColumn centralizar"> Última <br>ediçaõ</th>
+                <th class="hideColumn centralizar"> Editor </th>
+        
+            
+            <th class="centralizar">Edição</th>
+        </tr>
+    </thead>
+   
+    <tbody id="listaDeItens2">
+        <!-- aqui aparecem inpormações em tabela -->
+      </tbody>
+</table>
 
 
 
     <script>
 
+        //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        function mostraHora(){
+                        //Obtenção de data
+            const dataAtualPage = new Date()
+            //padStart(x,x) serve para quando se deseja mostrar um numero sosinho
+            //como dia, de 1 a 9 o 0 é acrescentado a esquerda             
+            const dia = String(dataAtualPage.getDate()).padStart(2, '0')
+            // O mes começa em '0' necessitando adicionar mais 1 pra ficar correto
+            const mes = String(dataAtualPage.getMonth() + 1).padStart(2, '0')
+            const ano = String(dataAtualPage.getFullYear())
+            const hora = String(dataAtualPage.getHours()).padStart(2, '0')
+            const minuto = String(dataAtualPage.getMinutes()).padStart(2, '0')
+            const segundo = String(dataAtualPage.getSeconds()).padStart(2, '0')
+
+            const concatName = `${dia}/${mes}/${ano} <br> ${hora}:${minuto}:${segundo}`
+
+            return concatName;
+        }
+       
+
+        
+        //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
         const tabelaItens = document.getElementById('listaDeItens')
-        const inputBusca = document.getElementById('texto')
-
+        const inputBusca = document.getElementById('texto2')
+        let btn = document.getElementById('buscaBtn')
 
         inputBusca.addEventListener('keyup', () => {
+
+        // btn.addEventListener('click', () => {
 
             let expressao = inputBusca.value.toLowerCase()
 
@@ -96,12 +147,9 @@
         })
 
 
-        //===========================================================================
 
-        let palavra = "anderson santos fernandes"
-        let texto = 'anderson'
-        // console.log("eu ",palavra.includes(texto))
 
+    
 
 const itemsCadList = JSON.parse(localStorage.getItem('itemsCad'))
 
@@ -132,6 +180,7 @@ for (let li = 0; li < itemsCadList.length; li++) {
  `
     }
  
+//==========================================================================
 
 
 

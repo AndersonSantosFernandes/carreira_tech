@@ -17,7 +17,7 @@
     <title>Parametro de itens</title>
 
 
-</head>
+</head> 
 
 <body>
     <style id="styleShow" >
@@ -36,7 +36,15 @@
                 <i class="bi bi-list" onclick="showMenu()"></i>  <h1>Parâmetro de itens</h1>
                 
             </div>
-                
+
+           <div class="itmPagina">
+                <label for="itensPorPagina">Ítens por página</label>
+                <select name="" id="itensPorPagina" onchange="mudaNumeroPorPagina()">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+           </div>
 
             <div class="cab_esq">
                 <div class="iniciais" >
@@ -53,7 +61,7 @@
        <div class="superior">
             <div class="superior_esq">
                  <div>Pesquisar por item</div>
-                <div ><input  class="form_busca" type="text" name="" id="" placeholder="Digite aqui" > <input class="form_btn" type="button" value="Buscar">    </div>
+                <div ><input  class="form_busca" type="text" name="" id="campoBusca" placeholder="Digite aqui" > <input class="form_btn" id="btnBuscar" type="button" value="Buscar" onclick="procurarItem()">    </div>
          
             </div>
             <div class="superior_dir">
