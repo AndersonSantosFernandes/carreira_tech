@@ -36,15 +36,12 @@
                 <i class="bi bi-list" onclick="showMenu()"></i>  <h1>Parâmetro de itens</h1>
                 
             </div>
+            
+            <!-- usuario aqui -->
 
-           <div class="itmPagina">
-                <label for="itensPorPagina">Ítens por página</label>
-                <select name="" id="itensPorPagina" onchange="mudaNumeroPorPagina()">
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                </select>
-           </div>
+
+            <!-- usuario aqui -->
+         
 
             <div class="cab_esq">
                 <div class="iniciais" >
@@ -233,6 +230,15 @@
                     <input type="text" name="" id="prestador" placeholder="Prestadores">
                     <br>
                     <br>
+                    <select name="" id="selectUsuario" onchange="changeUser()"> 
+                        <option value="Administrador">Selecione</option>
+                        <option value="Anderson">Anderson</option>
+                        <option value="Mariane">Mariane</option>
+                        <option value="Margarida">Margarida</option>
+                        <option value="Farias">Farias</option>
+                        <option value="Fagundes">Fagundes</option>
+                    </select>
+                    <br>
                     
                         <p>> Equipamento</p>
                         <p>> Familia</p>
@@ -270,7 +276,7 @@
           <h1 class="modal-title fs-5" id="exampleModalLabel">Logar / Cadastrar</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body">    
           
             <div id="formInit">
                 <div id="init1">

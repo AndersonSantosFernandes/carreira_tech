@@ -1,19 +1,16 @@
 
 
+function changeUser(){
+    let mudaUsuario = document.getElementById('selectUsuario').value
+
+    sessionStorage.setItem('novoUser' , mudaUsuario)
+
+    location.href = "./index.html"
+}
+
 if(!sessionStorage.getItem('novoUser')){
 
-    var nome = window.prompt("digite um nome para criar sessão")
-
-
-
-    if(nome == null ){
-        var nome = window.prompt("Digite um nome para criar sessão")
-    }else{
-        sessionStorage.setItem('novoUser' , nome)
-    }
-    
-
-
+    sessionStorage.setItem('novoUser' , "Administrador")
 }
 
 

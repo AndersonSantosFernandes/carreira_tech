@@ -59,7 +59,7 @@ function information(){
        `
        .hideColumn{
           display: "";
-             padding: 30px;
+             
              margin-left: 40px;
       }
        `
@@ -75,3 +75,20 @@ function information(){
        `
     }
  }
+
+
+ function hideRow(linhaCheck){
+
+    console.log(linhaCheck.checked)
+
+
+    var line = linhaCheck.parentNode.parentNode.parentNode;
+ if(linhaCheck.checked){
+    line.classList.remove('disabled')
+  
+ }else{
+  
+  line.classList.add('disabled')
+ }
+
+}

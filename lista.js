@@ -2,18 +2,7 @@
 
 const itemsCadList = JSON.parse(localStorage.getItem('itemsCad'))
 
-const itemPorPagina = JSON.parse(localStorage.getItem('itemPorPagina'))
 
-if(!itemPorPagina){
-   localStorage.setItem('itemPorPagina', 5)
-   
-}
-
-function mudaNumeroPorPagina(){
-   let nppg = document.getElementById('itensPorPagina').value
-   localStorage.setItem('itemPorPagina', nppg)
-   location.href = "index.html"
-}
 
 // esconder editor de item 
 
@@ -202,7 +191,7 @@ if(itemsCadList == null){
    paginacao1.style.display ="block"
   
 
-   const itensPagina = itemPorPagina
+   const itensPagina = 5
    // const itensPagina = 5
 
 
@@ -216,66 +205,71 @@ if(itemsCadList == null){
   
    for(let pa = 1 ; pa < totalPages+1 ; pa++){
 
-   paginacao.innerHTML += 
-   `   
-   <li class="page-item " onclick="change(${pa})"><a class="page-link" style="cursor: pointer ;"> ${pa}</a></li>
-   `
+      paginacao.innerHTML += 
+      `   
+      <li class="page-item " onclick="change(${pa})"><a class="page-link" style="cursor: pointer ;"> ${pa}</a></li>
+      `
 
-}
-function procurarItem(){
+   }
+   function procurarItem(){
 
       let procura = document.getElementById('campoBusca').value
-   if(procura.length === 0){
-      alert("Campo vazio")
+      if(procura.length === 0){
+         alert("Campo vazio")
 
-       icrem = (page * itensPagina) - itensPagina
-      con = page * itensPagina
-      alert(icrem)
-   }else{
-      alert(procura)
-       icrem = 0
-      con = itemsCadList.length
-      alert(icrem)
+         icrem = (page * itensPagina) - itensPagina
+         con = page * itensPagina
+         alert(icrem)
+      }else{
+         alert(procura)
+         icrem = 0
+         con = itemsCadList.length
+         alert(icrem)
+      }
+   
+   
    }
-   
-   
-}
 
 
 
-for (let li = increment; li < cont; li++) {
+   for (let li = increment; li < cont; li++) {
    
-  console.log('li', li)
-//Corpo da tabela
-showBody.innerHTML +=
-`
-<tr class="linha_item " id="linha-${li}" >
-   <td >${itemsCadList[li]['newItem']}</td>
-   <td class="centralizar">${itemsCadList[li]['newSelect']}</td>
-   <td class="centralizar">${itemsCadList[li]['newResolucao']}</td>
-   <td class="centralizar ">
-      <div class="form-check form-switch centralizar alinhar">
-      <input  class="form-check-input some" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked onchange="hideRow(${li})">
-      <label  class="form-check-label" for="flexSwitchCheckChecked"></label>
-      </div>
-   </td>
-   <td   class="centralizar hideColumn" > ${itemsCadList[li]['newData']} </td>
-   <td   class="centralizar hideColumn" > ${itemsCadList[li]['newLogado']} </td>
-   <td class="centralizar">
-   <button class="btnEdit" onclick="editItem('${li}')"><i class="bi bi-pencil"></i></button>   
-   </td>   
- </tr>
-`
+      console.log('li', li)
+      //Corpo da tabela
+      showBody.innerHTML +=
+      `
+      <tr class="linha_item" id="linha-${li}" >
+         <td >${itemsCadList[li]['newItem']}</td>
+         <td class="centralizar">${itemsCadList[li]['newSelect']}</td>
+         <td class="centralizar">${itemsCadList[li]['newResolucao']}</td>
+         <td class="centralizar ">
+            <div class="form-check form-switch centralizar alinhar">
+            <input  class="form-check-input some" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked onchange="hideRow(this)">
+            <label  class="form-check-label" for="flexSwitchCheckChecked"></label>
+            </div>
+         </td>
+         <td   class="centralizar hideColumn" > ${itemsCadList[li]['newData']} </td>
+         <td   class="centralizar hideColumn" > ${itemsCadList[li]['newLogado']} </td>
+         <td class="centralizar">
+         <button class="btnEdit" onclick="editItem('${li}')"><i class="bi bi-pencil"></i></button>   
+         </td>   
+      </tr>
+      `
    }
    
 }   
 
-function hideRow(line){
-   let switche = document.getElementsByClassName('some')
-   console.log('asasdsa',switche[line])
-   // switche.style.opacity = "50%"
 
-}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
 
 
 // console.log('switch', switche[2].checked)
