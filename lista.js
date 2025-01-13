@@ -215,16 +215,16 @@ if(itemsCadList == null){
 
       let procura = document.getElementById('campoBusca').value
       if(procura.length === 0){
-         alert("Campo vazio")
+         // alert("Campo vazio")
 
          icrem = (page * itensPagina) - itensPagina
          con = page * itensPagina
-         alert(icrem)
+         // alert(icrem)
       }else{
-         alert(procura)
+         // alert(procura)
          icrem = 0
          con = itemsCadList.length
-         alert(icrem)
+         // alert(icrem)
       }
    
    
@@ -237,7 +237,7 @@ if(itemsCadList == null){
 
    for (let li = increment; li < cont; li++) {
    
-      console.log('li', li)
+      // console.log('li', li)
       //Corpo da tabela
       showBody.innerHTML +=
       `
