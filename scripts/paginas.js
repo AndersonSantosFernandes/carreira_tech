@@ -79,7 +79,7 @@ function information(){
 
  function hideRow(linhaCheck){
 
-    console.log(linhaCheck.checked)
+    // console.log(linhaCheck.checked)
 
 
     var line = linhaCheck.parentNode.parentNode.parentNode;
@@ -92,3 +92,36 @@ function information(){
  }
 
 }
+
+
+//buscai item específico
+const tabelaItens = document.getElementById('bodyPersons')
+const inputBusca = document.getElementById('campoBusca')
+let btn = document.getElementById('buscaBtn')
+
+inputBusca.addEventListener('keyup', () => {
+
+// btn.addEventListener('click', () => {
+
+    let expressao = inputBusca.value.toLowerCase()
+
+    if (expressao.length === 1) {
+        return
+    }
+
+    let linhas = document.getElementsByTagName('tr')
+
+    for(let posicoes in linhas){
+
+        if(true === isNaN(posicoes)){
+            continue
+        }
+      let conteudoDaLinha = linhas[posicoes].innerHTML.toLowerCase()
+
+      if(true === conteudoDaLinha.includes(expressao)){
+        linhas[posicoes].style.display = ''
+      }else{
+        linhas[posicoes].style.display = 'none'
+      }
+    }
+})

@@ -232,6 +232,9 @@ if(itemsCadList == null){
 
 
 
+   
+
+
    for (let li = increment; li < cont; li++) {
    
       console.log('li', li)
