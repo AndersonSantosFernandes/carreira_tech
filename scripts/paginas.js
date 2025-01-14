@@ -38,7 +38,7 @@ function anterior(){
 
     if(paginandoDown <= 1){
 
-        alert(paginandoDown)
+        // alert(paginandoDown)
         pageDown.style.display = "none"
     }else{
         pageDown.style.display = "block"

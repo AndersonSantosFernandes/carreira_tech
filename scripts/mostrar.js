@@ -3,7 +3,7 @@
 
 let usando1 = sessionStorage.getItem('novoUser')
 
-console.log('usando1',usando1)
+// console.log('usando1',usando1)
 // let usando1 = JSON.parse(sessionStorage.getItem('usuarioLogado'))
 
 // if(usando1 == null){
