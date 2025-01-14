@@ -94,7 +94,7 @@ function information(){
 }
 
 
-//buscai item específico
+//buscar item específico
 const tabelaItens = document.getElementById('bodyPersons')
 const inputBusca = document.getElementById('campoBusca')
 let btn = document.getElementById('buscaBtn')
@@ -109,7 +109,8 @@ inputBusca.addEventListener('keyup', () => {
         return
     }
 
-    let linhas = document.getElementsByTagName('tr')
+    // let linhas = document.getElementsByTagName('tr')
+    let linhas = document.getElementsByClassName('aa')
 
     for(let posicoes in linhas){
 

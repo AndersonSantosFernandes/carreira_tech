@@ -241,7 +241,7 @@ if(itemsCadList == null){
       //Corpo da tabela
       showBody.innerHTML +=
       `
-      <tr class="linha_item" id="linha-${li}" >
+      <tr class="linha_item aa" id="linha-${li}" >
          <td >${itemsCadList[li]['newItem']}</td>
          <td class="centralizar">${itemsCadList[li]['newSelect']}</td>
          <td class="centralizar">${itemsCadList[li]['newResolucao']}</td>
