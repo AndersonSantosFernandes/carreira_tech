@@ -97,6 +97,7 @@ thead{
     top: 0;
     left: 805px;
     padding: 20px;
+    z-index: 2;
 }
 
 .formulario_item input ,select{
