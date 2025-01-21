@@ -9,11 +9,18 @@ const itemsCadList = JSON.parse(localStorage.getItem('itemsCad'))
 function hideEdit(){
    let editItem = document.getElementById('editItem')
    editItem.style.display = 'none'
+
+   let overlay = document.getElementById('overlay')
+   overlay.style.display = "none"
+   
 }
 
 //comandos para editar itens
 
 function editItem( indiceUpdate){
+
+   let overlay = document.getElementById('overlay')
+   overlay.style.display = "block"
    
    let editItem = document.getElementById('editItem')
    let formularioItem = document.getElementById('formularioItem')
@@ -108,6 +115,10 @@ function mostraCadastro(){
    let mostraCadastro = document.getElementById("cadastrar_item")
 
    mostraCadastro.style.display = 'block'
+
+
+   let overlay = document.getElementById('overlay')
+   overlay.style.display = "block"
 }
 function hideCadastro(){
    let mostraCadastro = document.getElementById("cadastrar_item")
@@ -236,8 +247,7 @@ if(itemsCadList == null){
 
 
    for (let li = increment; li < cont; li++) {
-   
-      // console.log('li', li)
+  
       //Corpo da tabela
       showBody.innerHTML +=
       `
@@ -263,35 +273,18 @@ if(itemsCadList == null){
 }   
 
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-
-
-
-
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-
-
-
-
-// console.log('switch', switche[2].checked)
-// switche[0].addEventListener('change', desaparece)
-
-// function desaparece(){
-//    alaert(switche)
-// }
-
-// ####################################################################################################
-// ####################################################################################################
-
 // Funções que mostram e escondem o menú lateral
 function hideEsc(){
    let overlay = document.getElementById('overlay')
    let hideCad = document.getElementById("cadastrando")
+   let editItem = document.getElementById('editItem')
+   let mostraCadastro = document.getElementById("cadastrar_item")
+   
+
    hideCad.style.display = "none"
    overlay.style.display = "none"
-   
+   editItem.style.display = 'none'
+   mostraCadastro.style.display = 'none'
 }
 
 function showMenu(){
