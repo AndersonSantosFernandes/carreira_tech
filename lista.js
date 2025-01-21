@@ -287,18 +287,22 @@ if(itemsCadList == null){
 
 // Funções que mostram e escondem o menú lateral
 function hideEsc(){
-
+   let overlay = document.getElementById('overlay')
    let hideCad = document.getElementById("cadastrando")
    hideCad.style.display = "none"
+   overlay.style.display = "none"
    
 }
 
 function showMenu(){
-
+   let overlay = document.getElementById('overlay')
     let hideCad = document.getElementById("cadastrando")
    hideCad.style.display = "block"
+   overlay.style.display = "block"
 // hideCad.style.opacity = "50%"
 }
+
+
 
 
 
