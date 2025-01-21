@@ -318,3 +318,26 @@ margin-bottom: 30px;
     display: none;
     z-index: 2;
 }
+
+@media(max-width: 400px) {
+    body{
+        background-color: #263C18;
+    }
+    .cadastrando{
+        height: max-content;
+    }
+    .cadastrar_item , .editItem{
+        left: 0px;
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+    .tabela{
+        width: 100%;
+       overflow: scroll;
+    }
+    .form_busca{
+        width: 180px;
+    }
+}

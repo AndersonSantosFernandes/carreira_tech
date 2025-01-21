@@ -113,26 +113,23 @@ const concatName = `${dia}/${mes}/${ano} <br> ${hora}:${minuto}:${segundo}`
 
 function mostraCadastro(){
    let mostraCadastro = document.getElementById("cadastrar_item")
-
    mostraCadastro.style.display = 'block'
-
-
    let overlay = document.getElementById('overlay')
    overlay.style.display = "block"
 }
 function hideCadastro(){
    let mostraCadastro = document.getElementById("cadastrar_item")
+   let overlay = document.getElementById('overlay')
    mostraCadastro.style.display = 'none'
+   overlay.style.display = "none"   
 }
 
 // inserir itens#################################
 helpArrayPerson = []//Array auxiliar itens
 function newItem() {
-
     let item = document.getElementById('item')
     let select_item = document.getElementById('select_item')
     let dias_resolucao = document.getElementById('dias_resolucao')
-
             //Obtenção de data
          const dataAtual = new Date()
          //padStart(x,x) serve para quando se deseja mostrar um numero sosinho
@@ -144,9 +141,7 @@ function newItem() {
          const hora = String(dataAtual.getHours()).padStart(2, '0')
          const minuto = String(dataAtual.getMinutes()).padStart(2, '0')
          const segundo = String(dataAtual.getSeconds()).padStart(2, '0')
-
-         const concatName = `${dia}/${mes}/${ano} <br> ${hora}:${minuto}:${segundo}`
-    
+         const concatName = `${dia}/${mes}/${ano} <br> ${hora}:${minuto}:${segundo}`   
           
     // Evita salvar campos vazios
     if (item.value.length < 2 || select_item.value.length < 2 || dias_resolucao.value.length < 1 ) {
