@@ -329,6 +329,7 @@ margin-bottom: 30px;
     .cadastrar_item , .editItem{
         left: 0px;
         width: 100%;
+        height: max-content;
     }
     .container{
         width: 100%;
