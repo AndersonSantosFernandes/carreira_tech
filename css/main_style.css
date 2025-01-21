@@ -334,11 +334,15 @@ margin-bottom: 30px;
     .container{
         width: 100%;
     }
-    .tabela{
-        width: 100%;
-       overflow: scroll;
-    }
+ 
     .form_busca{
         width: 180px;
+    }
+    .overflowTable{
+        width: 100%;
+        overflow: auto;
+    }
+    .novoItem_btn{
+        width: 150px;
     }
 }
