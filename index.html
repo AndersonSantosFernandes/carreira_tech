@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="./css/main_style.css">
     <title>Parametro de itens</title>
 
-
 </head> 
 
 <body>
@@ -31,21 +30,14 @@
 
     <main class="container">
         
-        <header class="cabecalho">
-            
+        <header class="cabecalho">            
             
             <div class="cab_dir" >
                 
                 <i class="bi bi-list" onclick="showMenu()"></i>  <h1>Parâmetro de itens</h1>
                 
-            </div>
-            
-            <!-- usuario aqui -->
-
-
-            <!-- usuario aqui -->
+            </div>        
          
-
             <div class="cab_esq">
                 <div class="iniciais" >
                 SP
@@ -53,11 +45,8 @@
                 <p>SISTEMA OPPAY</p>
             </div>
         
-       
         </header>
    
-
-       
        <div class="superior">
             <div class="superior_esq">
                  <div>Pesquisar por item</div>
@@ -66,7 +55,7 @@
             </div>
             <div class="superior_dir">
                 <br>
-                <div><input class="novoItem_btn" id="novoItem_btn" type="button" value="Novo item" onclick="mostraCadastro()" style="display: none;"></div>
+                <div><input class="novoItem_btn" id="novoItem_btn" type="button" value="Novo item" onclick="mostraCadastro()"></div>
             </div>             
         </div>
 
@@ -76,7 +65,6 @@
                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" onchange="information()" >
                 <label  class="form-check-label" for="flexSwitchCheckChecked">Visualizar mais detalhes</label>
             </div>
-
             
         </div>
         <div class="overflowTable">
@@ -89,15 +77,14 @@
                     <th class="centralizar">Status</th>
                    
                         <th class="hideColumn centralizar"> Última <br>ediçaõ</th>
-                        <th class="hideColumn centralizar"> Editor </th>
-                
+                        <th class="hideColumn centralizar"> Editor </th>                
                     
                     <th class="centralizar">Edição</th>
                 </tr>
             </thead>
            
             <tbody id="bodyPersons">
-                <!-- aqui aparecem inpormações em tabela -->
+                <!-- aqui aparecem informações em tabela -->
               </tbody>
         </table>
         </div>
@@ -128,10 +115,8 @@
             }
         </script>
 
-
        <!-- Cadastrar item --> 
         <div class="cadastrar_item" id="cadastrar_item" style="display: none;">
-
 
                     <div class="voltar">
 
@@ -159,9 +144,6 @@
                         <label for="dias_resolucao">Tempo de resolução (em dias)</label><br>
                         <input type="number" name="" id="dias_resolucao" placeholder="Digite o número em dias" min="1">
 
-                        
-
-                        
                         <p>
                             <button  class="btn_save_item" onclick="newItem()">Salvar</button>
                         
@@ -172,10 +154,8 @@
     
         </div>
 
-
         <!-- editar item -->
         <div class="editItem" id="editItem" style="display: none;">
-
 
             <div class="voltar">
     
@@ -203,19 +183,15 @@
         <label for="dias_resolucao">Tempo de resolução (em dias)</label><br>
         <input type="number" name="" id="dias_resolucao" placeholder="Digite o número em dias" min="1">
     
-        <input type="hidden" id="usuario_logado" value="priscila@mobyan.com">
-        <input type="hidden" id="data_cadastro" value="1978/10/18">
-    
+        <!-- <input type="hidden" id="usuario_logado" value="priscila@mobyan.com">
+        <input type="hidden" id="data_cadastro" value="1978/10/18">     -->
         
         <p>
-            <button class="btn_save_item" onclick="newItem()">Salvar</button>
-           
+            <button class="btn_save_item" onclick="newItem()">Salvar</button>          
             
         </p>
-        </div>
-    
+        </div>  
      
-   
         </div>
         <!-- Menu lateral esquerdo -->
         <div class="cadastrando" id="cadastrando" style="display: none;">
@@ -248,21 +224,10 @@
                         <p>> Familia</p>
                         <p>> Modelo</p>
                         <p>> Prestador</p>
-                        <p>> Prestador responsável</p>
-                        
+                        <p>> Prestador responsável</p>                        
                     
-                </div>
-                
+                </div>                
 
-
-            <!-- Button trigger modal -->
-            <!-- <div class="divBtnLog">
-                <button type="button" class="logCad" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Logar / Cadastrar
-                 </button>
-                 
-            </div> -->
-            
             <div class="divLogout">
                 <button type="button" onclick="logOut()"><i class="bi bi-box-arrow-right">Sair</i> </button>
             </div>            
@@ -270,8 +235,7 @@
         </div> 
        
     </main>
-   
-  
+     
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -323,13 +287,12 @@
         </div>
         </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./scripts/script.js"></script>
     <script src="./scripts/logar.js"></script>
     <script src="./scripts/editar.js"></script>
     <script src="./scripts/mostrar.js"></script>
     <script src="./scripts/paginas.js"></script>
+    <script src="./scripts/lista.js"></script>
     
-    <script src="lista.js"></script>
 </body>
 
 </html>

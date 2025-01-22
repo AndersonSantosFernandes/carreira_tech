@@ -3,33 +3,15 @@
 
 let usando1 = sessionStorage.getItem('novoUser')
 
-// console.log('usando1',usando1)
-// let usando1 = JSON.parse(sessionStorage.getItem('usuarioLogado'))
 
-// if(usando1 == null){
-
-//   // Swal.fire("Para cadstrar e editar itens é necessário estar logado \n Faça o cadástro no menú lateral e logue eposteriormente");
-
-//   Swal.fire({
-//     // position: "top-end",
-//     icon: "error",
-//     title: "Para cadstrar e editar itens é necessário estar logado \n Faça o cadástro no menú lateral e logue posteriormente",
-//     showConfirmButton: false,
-//     timer: 3500
-// });
-
-
-// }
 
 let nomeLogado = usando1
-// let emailLogado = usando1.emailSessao
+
 
 
 
 if(sessionStorage.getItem('novoUser')){
-  // if(sessionStorage.getItem('usuarioLogado')){
-  
-    
+  s    
         let botaoCadastro = document.getElementById("novoItem_btn")
         let logadoSessao = document.getElementById("sessaoUsuario")
       botaoCadastro.style.display="block"

@@ -2,8 +2,6 @@
 
 const itemsCadList = JSON.parse(localStorage.getItem('itemsCad'))
 
-
-
 // esconder editor de item 
 
 function hideEdit(){
@@ -19,9 +17,6 @@ function hideEdit(){
 
 function editItem( indiceUpdate){
 
-   let overlay = document.getElementById('overlay')
-   overlay.style.display = "block"
-   
    let editItem = document.getElementById('editItem')
    let formularioItem = document.getElementById('formularioItem')
 
@@ -32,9 +27,8 @@ function editItem( indiceUpdate){
 
       if (indiceUpdate == sel) {
          
-         formularioItem.innerHTML = `
-
-
+         formularioItem.innerHTML = 
+         `
          <label for="itemUp">Item</label><br>
         <input value="${arraySelectItem[sel]['newItem']}" class="inputz" type="text" name="" id="itemUp" placeholder="Digite o nome do item">
         <br>
@@ -51,30 +45,25 @@ function editItem( indiceUpdate){
             
         <p>
             <button class="btn_save_item" onclick="saveEditionItem('${sel}')">Salvar</button>
-           
-            
+                       
         </p>
-         
-        
+                 
          `
       }
    }
-  //-------------------------------------------------------------------------
+   showOverlay()
 }
-
 
 //================================EDIÇÃO itens inicio=========================
 // Salvamento de fato da edição
 arrayUpdateItem = []
 function saveEditionItem(indiceSaveItem){
-
   
    arrayUpdateItem = itemsCadList
 // let upItemItem = document.getElementsByClassName('item')
 let upItemItem = document.getElementById('itemUp')
 let upSelectItem = document.getElementById('select_itemUp')
 let upResolucaoItem = document.getElementById('dias_resolucaoUp')
-
 
 //Obtenção de data
 const dataAtual = new Date()
@@ -89,7 +78,6 @@ const minuto = String(dataAtual.getMinutes()).padStart(2, '0')
 const segundo = String(dataAtual.getSeconds()).padStart(2, '0')
 
 const concatName = `${dia}/${mes}/${ano} <br> ${hora}:${minuto}:${segundo}`
-
 
    for (let update = 0; update < arrayUpdateItem.length; update++) {
       
@@ -114,8 +102,7 @@ const concatName = `${dia}/${mes}/${ano} <br> ${hora}:${minuto}:${segundo}`
 function mostraCadastro(){
    let mostraCadastro = document.getElementById("cadastrar_item")
    mostraCadastro.style.display = 'block'
-   let overlay = document.getElementById('overlay')
-   overlay.style.display = "block"
+  showOverlay()
 }
 function hideCadastro(){
    let mostraCadastro = document.getElementById("cadastrar_item")
@@ -171,8 +158,6 @@ function newItem() {
 paginando = sessionStorage.getItem('paginacao')
 page = paginando
 
-
-
 //Lista de itens cadastrados
 
 let showBody = document.getElementById('bodyPersons')
@@ -180,8 +165,6 @@ let message = document.getElementById('msgEmpty')
 let paginacao = document.getElementById("interPagination")
 let paginacao1 = document.getElementById("paginacao")
 //lista de itens ############################### inicio
-
-
    
 if(itemsCadList == null){
    paginacao1.style.display ="none"
@@ -192,22 +175,15 @@ if(itemsCadList == null){
    `
 }else{
 
-   
+   paginacao1.style.display ="block"  
 
-   paginacao1.style.display ="block"
-  
-
-   const itensPagina = 5
-   // const itensPagina = 5
-
+   const itensPagina = 5   
 
    totalPages = Math.ceil(itemsCadList.length / itensPagina)
 
    const cont = page * itensPagina
 
    const increment = (page * itensPagina) - itensPagina
-
-
   
    for(let pa = 1 ; pa < totalPages+1 ; pa++){
 
@@ -215,31 +191,21 @@ if(itemsCadList == null){
       `   
       <li class="page-item " onclick="change(${pa})"><a class="page-link" style="cursor: pointer ;"> ${pa}</a></li>
       `
-
    }
    function procurarItem(){
-
       let procura = document.getElementById('campoBusca').value
-      if(procura.length === 0){
-         // alert("Campo vazio")
+      if(procura.length === 0){        
 
          icrem = (page * itensPagina) - itensPagina
          con = page * itensPagina
-         // alert(icrem)
+         
       }else{
-         // alert(procura)
+        
          icrem = 0
-         con = itemsCadList.length
-         // alert(icrem)
-      }
-   
+         con = itemsCadList.length        
+      }   
    
    }
-
-
-
-   
-
 
    for (let li = increment; li < cont; li++) {
   
@@ -267,27 +233,28 @@ if(itemsCadList == null){
    
 }   
 
-
 // Funções que mostram e escondem o menú lateral
 function hideEsc(){
    let overlay = document.getElementById('overlay')
    let hideCad = document.getElementById("cadastrando")
-   let editItem = document.getElementById('editItem')
-   let mostraCadastro = document.getElementById("cadastrar_item")
-   
-
    hideCad.style.display = "none"
    overlay.style.display = "none"
-   editItem.style.display = 'none'
-   mostraCadastro.style.display = 'none'
+
+   hideCadastro()
+   hideEdit()
+  
 }
 
 function showMenu(){
-   let overlay = document.getElementById('overlay')
+   
     let hideCad = document.getElementById("cadastrando")
-   hideCad.style.display = "block"
+   hideCad.style.display = "block"   
+   showOverlay()
+}
+
+function showOverlay(){
+   let overlay = document.getElementById('overlay')
    overlay.style.display = "block"
-// hideCad.style.opacity = "50%"
 }
 
 
