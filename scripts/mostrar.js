@@ -11,7 +11,7 @@ let nomeLogado = usando1
 
 
 if(sessionStorage.getItem('novoUser')){
-  s    
+     
         let botaoCadastro = document.getElementById("novoItem_btn")
         let logadoSessao = document.getElementById("sessaoUsuario")
       botaoCadastro.style.display="block"
