@@ -144,9 +144,11 @@ function newItem() {
         // objeto que recebe dos inputs
         objectPerson = { newItem: item.value, newSelect: select_item.value, newResolucao: dias_resolucao.value, newLogado: nomeLogado,
         newData: concatName}
-
+         //Essa variável 'helpArray' inicializada como vazia rececebe todas as linhas gravadas no localStorage
         helpArrayPerson = JSON.parse(localStorage.getItem('itemsCad')) || []
+         //Agora a mesma variável faz um 'push' adicinando mais uma linha, vinda com os ítens da variável 'objectPerson'
         helpArrayPerson.push(objectPerson)
+        //Com esse comando agora, é feita literalmente a substituição de todo conteúdo salvo pelo de variavel que recebeu uma linha de dados
         localStorage.setItem('itemsCad', JSON.stringify(helpArrayPerson))
 
         location.href = "index.html"
